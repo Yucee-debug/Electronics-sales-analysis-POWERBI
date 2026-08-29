@@ -270,7 +270,97 @@ Power BI visualizations were used to present the analysis in an interactive dash
 GitHub was used to document and present the completed analytics project. The repository contains the project overview, dataset description, data preparation process, analytical approach, key findings, insights, and Power BI dashboard preview.
 
 
-## 9. Conclusion
+## 9. DAX Measures
+
+### Total Revenue
+
+Total Revenue =SUMX(Sales,Sales[SalesAmount] * Sales[Quantity])
+
+### What this means
+
+Think of one sales row:
+
+**SalesAmount = 500**
+
+**Quantity = 3**
+
+Power BI calculates:
+
+**500 × 3 = 1,500**
+
+Result:
+
+**3,106,350**
+
+### Total Cost
+
+Total Cost =SUMX(Sale,Sales[Unit Cost] * Sales[Quantity])
+
+Result:
+
+**2,174,445**
+
+### Total Profit
+
+Total Profit =[Total Revenue] - [Total Cost]
+Calculation:
+
+**3,106,350 − 2,174,445 = 931,905**
+Result:
+
+**931,905**
+
+### Units Sold
+
+Units Sold =SUM(Sales[Quantity])
+
+Result:
+
+**15,657 units**
+
+### Total Customers
+
+Total Customers =DISTINCTCOUNT(Customers[CustomerID])
+
+### Why `DISTINCTCOUNT`?
+
+Suppose Customer 101 purchased five times.
+
+A normal count could count the five records.
+
+But we want:
+
+**Customer 101 = 1 customer**
+
+Therefore:
+
+`DISTINCTCOUNT(CustomerID)`
+
+is appropriate.
+
+### Profit Margin
+
+Profit Margin =DIVIDE([Total Profit],[Total Revenue],0)
+
+Calculation:
+
+**931,905 ÷ 3,106,350 = 0.30**
+
+Formatted as percentage:
+
+**30%**
+
+| Measure | Purpose |
+|---|---|
+| Total Revenue | Calculates total sales revenue based on sales amount and quantity. |
+| Total Cost | Calculates total cost based on unit cost and quantity. |
+| Total Profit | Calculates revenue remaining after total cost. |
+| Units Sold | Calculates total product quantity sold. |
+| Total Customers | Counts unique customers. |
+| Profit Margin | Calculates profit as a percentage of revenue. |
+
+
+## 10. Conclusion
 
 The electronics sales analysis provided an overview of sales performance, profitability, customer activity, and product performance for the available data period. The business generated total revenue of 3,106,350 from 15,657 units sold, with total costs of 2,174,445 resulting in total profit of 931,905 and an overall profit margin of 30%.
 At the brand level, Apple recorded the highest profit at 196,890, while White products recorded the highest purchase volume with 6,120 units sold. The Medium income-level customer segment generated the highest profit at 346,9
