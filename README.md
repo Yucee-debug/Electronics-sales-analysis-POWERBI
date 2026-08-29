@@ -241,3 +241,11 @@ Power BI visualizations were used to present the analysis in an interactive dash
 
 GitHub was used to document and present the completed analytics project. The repository contains the project overview, dataset description, data preparation process, analytical approach, key findings, insights, and Power BI dashboard preview.
 
+
+## 9. Conclusion
+
+The electronics sales analysis provided an overview of sales performance, profitability, customer activity, and product performance for the available data period. The business generated total revenue of 3,106,350 from 15,657 units sold, with total costs of 2,174,445 resulting in total profit of 931,905 and an overall profit margin of 30%.
+At the brand level, Apple recorded the highest profit at 196,890, while White products recorded the highest purchase volume with 6,120 units sold. The Medium income-level customer segment generated the highest profit at 346,9
+Customer reach remained consistent across January, February, and March, with each month recording 250 unique customers. Since the available sales data covers 2023 only, a year-over-year revenue growth comparison could not be established.
+The Power BI dashboard consolidates these findings into an interactive reporting tool, allowing users to monitor key performance indicators and explore results using Region and Category filters.
+
