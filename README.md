@@ -1,2 +1,3 @@
-# Electronics-sales-analysis-POWERBI
-Power BI analysis of electronics sales, profitability, customer behavior, and product performance.
+Electronics Sales Analysis & Power BI Dashboard
+
+1. Introduction
