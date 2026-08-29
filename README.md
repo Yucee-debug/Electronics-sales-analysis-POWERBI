@@ -26,7 +26,9 @@ The analysis was designed to answer the following questions:
 - [Analysis Questions and Insights](#6-analysis-questions-and-insights)
 - [Dashboard Preview](#7-dashboard-preview)
 - [Tools and Techniques](#8-tools-and-techniques)
-- [Conclusion](#9-conclusion)
+- [DAX Measures](#9-dax-measures)
+- [Data Model](#10-data-model)
+- [Conclusion](#11-conclusion)
 
 ## 1. Introduction
    
