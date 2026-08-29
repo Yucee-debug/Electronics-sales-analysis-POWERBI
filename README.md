@@ -204,3 +204,14 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 | What was the yearly revenue? | 2023 — 3,106,350 | 2023 represents the available sales period; no year-over-year comparison is possible. |
 | Which month had the lowest customer reach? | No lowest month | January, February, and March each recorded 250 customers. |
 | Which income level generated the highest profit? | Medium — 346,920 | Medium-income customers contributed the highest profit. |
+
+
+## 7. Dashboard Preview
+
+![Electronics Overview Power BI Dashboard](electronics-overview.png)
+
+![Electronics Sales Analysis Power BI Dashboard](electronics-sales-dashboard.png)
+
+The dashboard provides an interactive view of electronics sales performance, profitability, customer activity, and product performance. Users can use the Region and Category slicers to filter the visualizations and examine specific segments of the business.
+
+
