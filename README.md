@@ -400,7 +400,6 @@ This structure allows filters and attributes from the Customers and Products tab
 
 ### Model Overview
 
-```text
 Customers
 CustomerID
      │
@@ -420,7 +419,9 @@ ProductID
 The model separates transaction data from descriptive customer and product information. This makes it possible to analyze sales transactions using attributes from the Products and Customers tables while maintaining a structured analytical model.
 For example, the model allows total profit to be analyzed by Brand from the Products table and by IncomeLevel from the Customers table.
 
-## 10. Conclusion
+
+
+## 11. Conclusion
 
 The electronics sales analysis provided an overview of sales performance, profitability, customer activity, and product performance for the available data period. The business generated total revenue of 3,106,350 from 15,657 units sold, with total costs of 2,174,445 resulting in total profit of 931,905 and an overall profit margin of 30%.
 At the brand level, Apple recorded the highest profit at 196,890, while White products recorded the highest purchase volume with 6,120 units sold. The Medium income-level customer segment generated the highest profit at 346,9
