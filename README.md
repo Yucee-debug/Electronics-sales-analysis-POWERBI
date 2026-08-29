@@ -1,5 +1,21 @@
 ## Electronics Sales Analysis & Power BI Dashboard
 
+An end-to-end electronics sales analysis project developed in Microsoft Power BI to evaluate revenue, profitability, customer activity, and product performance through interactive business intelligence reporting.
+
+### Project Objective
+
+The objective of this project was to transform raw electronics sales data into an interactive Power BI dashboard that enables users to monitor key performance indicators, evaluate profitability, identify product and customer patterns, and support data-driven business decisions.
+
+### Business Questions
+
+The analysis was designed to answer the following questions:
+
+1. Which brand generated the highest profit?
+2. Which product color recorded the highest purchase volume?
+3. What was the total revenue for the available year?
+4. Which month recorded the lowest customer reach?
+5. Which customer income level generated the highest profit?
+
 ## Table of Contents
 
 - [Introduction](#1-introduction)
