@@ -40,10 +40,19 @@ The analysis was designed to answer the following questions:
    
 This project analyzes electronics sales data to evaluate overall sales performance, profitability, customer activity, and product performance. The analysis was developed in Microsoft Power BI to transform the raw sales data into an interactive dashboard that supports monitoring, measurement, and evaluation of key business performance indicators.
 
-Dashboard Overview
 
-The Power BI dashboard provides a consolidated view of the electronics business performance using key performance indicators (KPIs) and interactive visualizations. It enables users to monitor total revenue, total cost, total profit, and total customers while examining profitability by brand, purchase volume by color, revenue by year, monthly customer reach, and profit by income level.
-The dashboard also includes interactive Brand and Product name slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
+## Project Workflow
+
+The project followed an end-to-end data analysis workflow:
+
+1. **Data Profiling** — Reviewed the structure, fields, data types, completeness, and relationships within the dataset.
+2. **Data Cleaning and Transformation** — Prepared the source data using Power Query by checking data quality, correcting data types, standardizing fields, and preparing the tables for analysis.
+3. **Data Modelling** — Established relationships between the Sales, Products, and Customers tables.
+4. **DAX Calculations** — Created measures for revenue, cost, profit, profit margin, units sold, and unique customers.
+5. **Exploratory Analysis** — Examined sales, profitability, customer activity, product characteristics, and income-level performance.
+6. **Dashboard Development** — Built interactive Power BI visualizations and KPI cards.
+7. **Insight Generation** — Interpreted the results to identify key performance patterns and findings.
+8. **Documentation** — Documented the analytical process and results in GitHub
 
 
 
