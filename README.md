@@ -360,6 +360,66 @@ Formatted as percentage:
 | Profit Margin | Calculates profit as a percentage of revenue. |
 
 
+## 10. Data Model
+
+The Power BI data model was designed around the Sales table as the central transaction table. The Products and Customers tables provide descriptive information used to analyze sales transactions from different business perspectives.
+
+### Model Structure
+
+The model consists of:
+
+- **Sales** — central transaction/fact table
+- **Products** — product dimension table
+- **Customers** — customer dimension table
+
+### Sales Table
+
+The Sales table acts as the central fact table because it contains the individual sales transactions and measurable business values such as Quantity, SalesAmount, and Unit Cost.
+The table contains the transaction identifiers SaleID, ProductID, and CustomerID, which allow each transaction to be associated with a product and customer.
+
+### Products Table
+
+The Products table acts as a dimension table containing descriptive information about the products. ProductID serves as the key used to connect product information to sales transactions.
+The table provides attributes such as ProductName, Category, Brand, Color, and Weight, which allow sales and profitability to be analyzed by product characteristics.
+
+### Customers Table
+
+The Customers table acts as a dimension table containing customer-related information. CustomerID serves as the key used to connect customers to their sales transactions.
+The table provides attributes such as Region, Age, Gender, IncomeLevel, and SignupDate, allowing customer-related sales and profitability analysis.
+
+### Relationships
+
+The Sales table is connected to the Products table through ProductID and to the Customers table through CustomerID.
+
+The relationships follow a one-to-many structure:
+
+- Customers[CustomerID] → Sales[CustomerID]
+- Products[ProductID] → Sales[ProductID]
+
+This structure allows filters and attributes from the Customers and Products tables to be applied to the related sales transactions.
+
+### Model Overview
+
+```text
+Customers
+CustomerID
+     │
+     │ 1 : *
+     ▼
+   Sales
+CustomerID
+ProductID
+     ▲
+     │ 1 : *
+     │
+Products
+ProductID
+
+### Why the Model Was Used
+
+The model separates transaction data from descriptive customer and product information. This makes it possible to analyze sales transactions using attributes from the Products and Customers tables while maintaining a structured analytical model.
+For example, the model allows total profit to be analyzed by Brand from the Products table and by IncomeLevel from the Customers table.
+
 ## 10. Conclusion
 
 The electronics sales analysis provided an overview of sales performance, profitability, customer activity, and product performance for the available data period. The business generated total revenue of 3,106,350 from 15,657 units sold, with total costs of 2,174,445 resulting in total profit of 931,905 and an overall profit margin of 30%.
