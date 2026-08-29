@@ -63,37 +63,71 @@ The dashboard includes two interactive slicers:
 These slicers allow the user to narrow the dashboard to selected products or brands and observe the resulting changes across the connected visuals and KPI measures.
 
 
- ## 2. About the Dataset
+## 2. About the Dataset
 
-The dataset contains electronics product, customer, and sales transaction information used to evaluate revenue, cost, profitability, sales volume, and customer activity.
+The dataset is an electronics sales dataset containing product information, customer information, and transaction-level sales records. It was provided as an Excel workbook and used as the source for the Power BI analysis.
 
-### Dataset Structure
+### Workbook Structure
 
-| Table     | Records | Fields | Purpose                                                                                           |
-| --------- | ------: | -----: | ------------------------------------------------------------------------------------------------- |
-| Products  |     250 |      6 | Contains product details and attributes used to analyze product and brand performance.            |
-| Customers |     250 |      7 | Contains customer demographic and registration information used for customer-level analysis.      |
-| Sales     |   5,200 |      7 | Contains individual sales transactions used to calculate revenue, cost, profit, and sales volume. |
+The workbook contains four sheets:
 
-### Products
+| Sheet | Records | Fields | Use in the Project |
+|---|---:|---:|---|
+| Products | 250 | 6 | Product attributes used for product, brand, and color analysis. |
+| Customers | 250 | 7 | Customer attributes used for customer and income-level analysis. |
+| Sales | 5,200 | 7 | Transaction-level records used for revenue, cost, profit, and sales-volume calculations. |
+| Sheet1 | — | 1 | Contains the project instructions and analytical requirements; not included in the Power BI data model. |
 
-The Products table contains 250 product records with information including ProductID, ProductName, Category, Brand, Color, and Weight.
+### Products Table
 
-These fields support analysis of product characteristics, brand profitability, and purchase volume by color.
+The Products table contains 250 product records and six fields:
 
-### Customers
+- **ProductID**: unique identifier for each product.
+- **ProductName**: name of the product.
+- **Category**: product category.
+- **Brand**: product brand.
+- **Color**: product color.
+- **Weight**: product weight.
 
-The Customers table contains 250 customer records with information including CustomerID, CustomerName, Region, Age, Gender, IncomeLevel, and SignupDate.
+The table contains seven product names, six brands, two categories, and three colors.
 
-These fields support analysis of customer activity and profitability across income-level segments.
+### Customers Table
 
-### Sales
+The Customers table contains 250 customer records and seven fields:
 
-The Sales table contains 5,200 transaction records with information including SaleID, ProductID, CustomerID, Quantity, SaleDate, SalesAmount, and Unit Cost.
+- **CustomerID**: unique identifier for each customer.
+- **CustomerName**: customer name.
+- **Region**: customer's region.
+- **Age**: customer's age.
+- **Gender**: customer's gender.
+- **IncomeLevel**: customer's income segment.
+- **SignupDate**: customer's registration date.
 
-This table provides the transaction-level data used to calculate the dashboard's revenue, cost, profit, units sold, and customer measures.
+### Sales Table
+
+The Sales table contains 5,200 transaction records and seven fields:
+
+- **SaleID**: unique identifier for each transaction.
+- **ProductID**: identifies the product involved in the transaction.
+- **CustomerID**: identifies the customer associated with the transaction.
+- **Quantity**: number of units recorded in the transaction.
+- **SaleDate**: date of the transaction.
+- **SalesAmount**: recorded sales amount per unit.
+- **Unit Cost**: recorded cost per unit.
+
+### Data Coverage
+
+The Sales table contains transactions from **January 1, 2023 to March 10, 2023**. The analysis therefore covers one calendar year, with transaction activity represented across January, February, and March.
 
 
+### Table Relationships
+
+The Sales table functions as the central transaction table.
+
+- **Sales[ProductID] → Products[ProductID]**
+- **Sales[CustomerID] → Customers[CustomerID]**
+
+These relationships allow transaction measures from the Sales table to be analyzed using product attributes from Products and customer attributes from Customers.
 ### Table Relationships
 
 The Sales table serves as the central transaction table. It connects to:
@@ -112,30 +146,81 @@ The dataset supports analysis of revenue, cost, profit, customer activity, produ
 
 ## 3. Data Cleaning and Transformation
 
-Before analysis, the Products, Customers, and Sales tables were reviewed in Power Query to identify missing values, duplicate records, inconsistent formatting, incorrect data types, and potential relationship issues.
+The raw Excel workbook was reviewed in Power Query before analysis. The cleaning process focused on correcting inconsistent categorical values, standardizing date fields, confirming data types, and validating the key fields used to connect the tables.
 
-### Missing Values
+### 3.1 Data Quality Review
 
-The Products, Customers, and Sales tables were checked for missing values. No missing values were identified in the analytical fields, so no records required removal because of null values.
+The three analytical tables were checked for missing values and duplicate records.
 
-### Duplicate Records
+- **Products:** 250 records, with no blank values or duplicate rows.
+- **Customers:** 250 records, with no blank values or duplicate rows.
+- **Sales:** 5,200 records, with no blank values or duplicate rows.
 
-Duplicate records were checked across the three analytical tables. No duplicate rows were identified in the Products, Customers, or Sales tables.
-The key identifier columns were also checked. ProductID, CustomerID, and SaleID contained unique values within their respective tables.
+The primary identifier fields were also checked for uniqueness:
 
-### Standardizing Categorical Values
+- `Products[ProductID]` — 250 unique IDs.
+- `Customers[CustomerID]` — 250 unique IDs.
+- `Sales[SaleID]` — 5,200 unique transaction IDs.
 
-Categorical fields were standardized to ensure that values representing the same category were not treated as separate categories. Region values were trimmed and standardized for consistent capitalization, while Gender values were standardized so that different capitalization did not create duplicate categories.
+The ProductID and CustomerID values recorded in the Sales table matched the corresponding IDs in the Products and Customers tables, so no unmatched product or customer records were identified.
 
-### Relationship and Key Validation
+### 3.2 Standardizing Customer Fields
 
-The key fields used to connect the tables were validated. ProductID values in the Sales table matched the Products table, while CustomerID values in Sales matched the Customers table. No unmatched key values were identified.
+The Customers table contained inconsistent text values that could create separate categories during analysis.
 
+#### Region
 
-### Data Transformation
+The `Region` column contained both:
 
-The cleaned data was prepared for analysis by standardizing categorical values, removing unnecessary spaces, converting date fields to the Date data type, and ensuring numerical fields used appropriate data types.
-The cleaned Products, Customers, and Sales tables were then loaded into Power BI for data modelling and analysis.
+- `North`
+- ` north `
+
+The values were standardized by removing unnecessary spaces and correcting the capitalization so that both represented the same `North` category.
+
+#### Gender
+
+The `Gender` column contained:
+
+- `Male`
+- `Female`
+- `female`
+
+The lowercase `female` value was standardized to `Female` so that the same gender was not treated as two separate categories.
+
+### 3.3 Standardizing Date Fields
+
+The source data contained dates written in different formats.
+
+The `Sales[SaleDate]` column contained values such as:
+
+- `2023-01-01`
+- `2023/02/15`
+- `2023-03-10`
+
+The `Customers[SignupDate]` column also contained mixed date formats, including:
+
+- `2020-05-01`
+- `2021/06/12`
+- `2022-07-15`
+
+The date columns were converted to the appropriate **Date** data type in Power Query so they could be used consistently for time-based analysis.
+
+### 3.4 Data Type Validation
+
+The columns were reviewed and assigned data types according to their analytical purpose.
+
+- Identifier fields were treated as whole numbers.
+- Quantity and financial fields were treated as numerical values.
+- Age was treated as a whole number.
+- Weight was treated as a decimal number.
+- Product, customer, brand, category, color, region, gender, and income-level fields were treated as text.
+- SaleDate and SignupDate were converted to Date.
+
+### 3.5 Final Data Preparation
+
+After the cleaning and transformation steps, the prepared Products, Customers, and Sales tables were loaded into Power BI.
+
+The cleaned tables were then used to create relationships, DAX measures, analytical visuals, and the final interactive dashboard.
 
 
 
