@@ -1,6 +1,6 @@
 Electronics Sales Analysis & Power BI Dashboard
 
-1. Introduction
+## 1. Introduction
    
 This project analyzes electronics sales data to evaluate overall sales performance, profitability, customer activity, and product performance. The analysis was developed in Microsoft Power BI to transform the raw sales data into an interactive dashboard that supports monitoring, measurement, and evaluation of key business performance indicators.
 
@@ -10,7 +10,7 @@ The Power BI dashboard provides a consolidated view of the electronics business 
 
 The dashboard also includes interactive Brand and Category slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
 
- 2. About the Dataset
+ ## 2. About the Dataset
 
 The dataset is an Excel workbook containing product, customer, and sales transaction information for an electronics business. The data was used to evaluate sales performance, profitability, customer activity, and product-related performance in Power BI.
 
@@ -72,4 +72,44 @@ The key fields used to connect the tables were validated. ProductID values in th
 The cleaned data was prepared for analysis by standardizing categorical values, removing unnecessary spaces, converting date fields to the Date data type, and ensuring numerical fields used appropriate data types.
 
 The cleaned Products, Customers, and Sales tables were then loaded into Power BI for data modelling and analysis.
-The dataset supports analysis of revenue, cost, profit, customer activity, product performance, brand profitability, purchase volume, and customer segmentation.
+
+
+## 4. Analysis
+
+The analysis focused on measuring overall sales performance, profitability, customer activity, and product performance using calculated measures and interactive Power BI visualizations.
+
+### Overall Business Performance
+
+The overall business performance was evaluated using four key performance indicators: Total Revenue, Total Cost, Total Profit, and Total Customers.
+
+Revenue was calculated by multiplying the SalesAmount by Quantity for each transaction and aggregating the results.
+
+Total Cost was calculated by multiplying Unit Cost by Quantity.
+
+Total Profit was calculated as Total Revenue minus Total Cost.
+
+Total Customers was measured using the unique CustomerID values.
+
+### Profitability by Brand
+
+Profit was analyzed across product brands to identify differences in profitability and determine which brands contributed the most to overall profit.
+
+### Product Demand by Color
+
+Units sold were analyzed by product color to identify differences in purchase volume and determine which colors were associated with higher product demand.
+
+### Revenue by Year
+
+Revenue was analyzed by year to examine overall sales performance across the available sales period and identify changes in revenue over time.
+
+### Monthly Customer Reach
+
+Customer activity was analyzed by month to identify periods with higher or lower customer reach and examine the distribution of customer activity throughout the available sales period.
+
+### Profitability by Customer Income Level
+
+Profit was analyzed across customer income levels to determine how profitability was distributed among different customer segments.
+
+### Interactive Analysis
+
+Brand and Product name slicers were incorporated into the dashboard to allow users to dynamically filter the analysis. This makes it possible to examine revenue, cost, profit, customer activity, and product performance for selected regions and product categories.
