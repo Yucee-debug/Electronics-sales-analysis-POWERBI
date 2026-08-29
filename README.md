@@ -128,19 +128,6 @@ The Sales table functions as the central transaction table.
 - **Sales[CustomerID] → Customers[CustomerID]**
 
 These relationships allow transaction measures from the Sales table to be analyzed using product attributes from Products and customer attributes from Customers.
-### Table Relationships
-
-The Sales table serves as the central transaction table. It connects to:
-
-* **Products** through ProductID
-* **Customers** through CustomerID
-
-This structure allows sales transactions to be analyzed using product and customer attributes.
-
-### Table Relationships
-
-The Sales table serves as the central transaction table. It connects to the Products table through ProductID and to the Customers table through CustomerID. These relationships allow product attributes and customer attributes to be analyzed alongside sales transactions.
-The dataset supports analysis of revenue, cost, profit, customer activity, product performance, brand profitability, purchase volume, and customer segmentation.
 
 
 
@@ -316,35 +303,74 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 
 ## 6. Analysis Questions and Insights
 
+The dashboard was used to answer the five business questions defined for the analysis.
+
 ### Question 1: Which brand generated the highest profit?
 
-**Finding:** Apple generated the highest profit at 196,890, while Dell generated the lowest profit at 125,850.
+**Finding:** Apple generated the highest profit at **196,890**.
 
-**Insight:** Apple was the most profitable brand in the dataset, generating 71,040 more profit than Dell. This indicates that Apple products made the largest contribution to overall brand-level profitability.
+**Insight:** Among the brands displayed in the analysis, Apple contributed the largest amount of profit. This makes Apple the strongest brand in terms of profit contribution within the analyzed sales records.
 
-### Question 2: Which product color had the highest purchase volume?
+The result can be monitored alongside the other brands to identify whether the difference is driven by higher sales volume, higher selling values, lower costs, or a combination of these factors.
 
-**Finding:** White had the highest purchase volume with 6,120 units sold, followed by Gray with 5,230 units and Black with 4,307 units.
 
-**Insight:** White products recorded the highest sales volume, accounting for approximately 39.1% of the 15,657 units sold. Black recorded the lowest volume at approximately 27.5%.
 
-### Question 3: What was the total revenue by year?
+### Question 2: Which product color recorded the highest purchase volume?
 
-**Finding:** The dataset contains sales records for 2023, generating total revenue of 3,106,350.
+**Finding:** White recorded the highest purchase volume with **6,120 units sold**.
 
-**Insight:** Since the available sales data covers only 2023, the dataset does not provide multiple years for a year-over-year growth comparison. The 2023 revenue therefore represents the total revenue for the available period rather than evidence of annual growth or decline.
+The other colors recorded:
 
-### Question 4: Which month had the lowest customer reach?
+- **Gray:** 5,230 units
+- **Black:** 4,307 units
 
-**Finding:** January, February, and March each recorded 250 unique customers.
+White accounted for approximately **39.1%** of the total **15,657 units sold**.
 
-**Insight:** There was no lowest-performing month based on customer reach because all three months recorded the same number of unique customers. Customer reach remained consistent across the available three-month period.
+**Insight:** White products represented the largest share of recorded unit volume during the analyzed period. However, purchase volume alone does not establish that White products generated the highest profit because profitability also depends on selling values and costs.
+
+
+
+### Question 3: What was the total revenue for the available sales year?
+
+**Finding:** The dataset generated **3,106,350 in total revenue during 2023**.
+
+The Sales table contains transactions from January through March 2023.
+
+**Insight:** The available dataset represents sales activity for part of 2023 rather than a complete twelve-month sales history. Therefore, the revenue figure should be interpreted as the total revenue recorded in the supplied dataset, not as a full-year estimate or a year-over-year growth measure.
+
+
+### Question 4: Which month recorded the lowest customer reach?
+
+**Finding:** There was **no single lowest month**.
+
+Each of the three months represented in the Sales data recorded **250 unique customers**:
+
+| Month | Unique Customers |
+|---|---:|
+| January | 250 |
+| February | 250 |
+| March | 250 |
+
+**Insight:** Customer reach was identical across January, February, and March in the available sales records. Therefore, the analysis does not identify a month with lower customer reach.
+
+This result should be reported as a **three-way tie**, rather than selecting one month as the lowest-performing month.
+
 
 ### Question 5: Which customer income level generated the highest profit?
 
-**Finding:** The Medium income-level segment generated the highest profit at 346,920, followed by the High income-level segment at 302,205 and the Low income-level segment at 282,780.
+**Finding:** The **Medium income-level segment** generated the highest profit at **346,920**.
 
-**Insight:** The Medium income-level segment contributed the largest share of profit among the three income groups, generating approximately 37.2% of the total profit.
+Profit by income level was:
+
+| Income Level | Profit |
+|---|---:|
+| Medium | 346,920 |
+| High | 302,205 |
+| Low | 282,780 |
+
+Medium-income customers contributed approximately **37.2%** of the total **931,905 profit**.
+
+**Insight:** The Medium income-level segment was the largest contributor to total profit among the three income groups. The result indicates that this customer segment is particularly important to the profitability represented in the dataset, although the analysis does not by itself establish why this segment generated more profit.
 
 ### Analysis Summary
 
@@ -400,134 +426,151 @@ GitHub was used to document and present the completed analytics project. The rep
 
 
 
-## 9. DAX Measures
+## ## 9. DAX Measures
 
-### Total Revenue
+The dashboard uses six DAX measures to calculate the financial, sales-volume, customer, and profitability metrics displayed in the KPI cards and analytical visuals.
 
-Total Revenue =SUMX(Sales,Sales[SalesAmount] * Sales[Quantity])
+### 9.1 Total Revenue
 
-### What this means
+```DAX
+Total Revenue =
+SUMX(
+    Sales,
+    Sales[SalesAmount] * Sales[Quantity]
+)
+```
 
-Think of one sales row:
+This measure calculates revenue at the transaction level by multiplying the recorded `SalesAmount` by the `Quantity` for each Sales record and then adding the resulting values.
 
-**SalesAmount = 500**
+**Dashboard result:** 3,106,350
 
-**Quantity = 3**
+---
 
-Power BI calculates:
+### 9.2 Total Cost
 
-**500 × 3 = 1,500**
+```DAX
+Total Cost =
+SUMX(
+    Sales,
+    Sales[Unit Cost] * Sales[Quantity]
+)
+```
 
-Result:
+This measure calculates the total cost associated with the units recorded in the Sales table. For each transaction, `Unit Cost` is multiplied by `Quantity`, and the resulting costs are summed.
 
-**3,106,350**
+**Dashboard result:** 2,174,445
 
-### Total Cost
+---
 
-Total Cost =SUMX(Sale,Sales[Unit Cost] * Sales[Quantity])
+### 9.3 Total Profit
 
-Result:
+```DAX
+Total Profit =
+[Total Revenue] - [Total Cost]
+```
 
-**2,174,445**
+This measure derives profit from the two previously created measures rather than recalculating the transaction-level values.
 
-### Total Profit
+**Calculation:**
 
-Total Profit =[Total Revenue] - [Total Cost]
-Calculation:
+3,106,350 − 2,174,445 = **931,905**
 
-**3,106,350 − 2,174,445 = 931,905**
-Result:
+**Dashboard result:** 931,905
 
-**931,905**
+---
 
-### Units Sold
+### 9.4 Units Sold
 
-Units Sold =SUM(Sales[Quantity])
+```DAX
+Units Sold =
+SUM(Sales[Quantity])
+```
 
-Result:
+This measure sums the `Quantity` field in the Sales table to determine the total number of product units represented by the recorded transactions.
 
-**15,657 units**
+**Dashboard result:** 15,657 units
 
-### Total Customers
+---
 
-Total Customers =DISTINCTCOUNT(Customers[CustomerID])
+### 9.5 Total Customers
 
-### Why `DISTINCTCOUNT`?
+```DAX
+Total Customers =
+DISTINCTCOUNT(Customers[CustomerID])
+```
 
-Suppose Customer 101 purchased five times.
+This measure counts each customer only once using the unique `CustomerID`.
 
-A normal count could count the five records.
+`DISTINCTCOUNT` is important here because the same customer can be associated with multiple records in the Sales table. Counting Sales rows would measure transactions, not customers.
 
-But we want:
+**Dashboard result:** 250 customers
 
-**Customer 101 = 1 customer**
+---
 
-Therefore:
+### 9.6 Profit Margin
 
-`DISTINCTCOUNT(CustomerID)`
+```DAX
+Profit Margin =
+DIVIDE(
+    [Total Profit],
+    [Total Revenue],
+    0
+)
+```
 
-is appropriate.
+This measure expresses profit as a proportion of revenue.
 
-### Profit Margin
+**Calculation:**
 
-Profit Margin =DIVIDE([Total Profit],[Total Revenue],0)
+931,905 ÷ 3,106,350 = **0.30**
 
-Calculation:
-
-**931,905 ÷ 3,106,350 = 0.30**
-
-Formatted as percentage:
+Formatted as a percentage:
 
 **30%**
 
-| Measure | Purpose |
-|---|---|
-| Total Revenue | Calculates total sales revenue based on sales amount and quantity. |
-| Total Cost | Calculates total cost based on unit cost and quantity. |
-| Total Profit | Calculates revenue remaining after total cost. |
-| Units Sold | Calculates total product quantity sold. |
-| Total Customers | Counts unique customers. |
-| Profit Margin | Calculates profit as a percentage of revenue. |
+---
+
+### Measure Summary
+
+| Measure             | DAX Purpose                                                 | Dashboard Result |
+| ------------------- | ----------------------------------------------------------- | ---------------: |
+| **Total Revenue**   | Calculates transaction revenue from SalesAmount × Quantity. |        3,106,350 |
+| **Total Cost**      | Calculates transaction cost from Unit Cost × Quantity.      |        2,174,445 |
+| **Total Profit**    | Subtracts Total Cost from Total Revenue.                    |          931,905 |
+| **Units Sold**      | Sums the Quantity field.                                    |           15,657 |
+| **Total Customers** | Counts unique CustomerID values.                            |              250 |
+| **Profit Margin**   | Divides Total Profit by Total Revenue.                      |              30% |
+
+### How the Measures Work With the Dashboard
+
+These measures are not fixed values. They are evaluated within the current filter context in Power BI.
+
+For example, when a user selects a specific **Brand** or **Product Name** using the dashboard slicers, the relevant Sales records are filtered through the Products-to-Sales relationship. The measures then recalculate using the filtered records.
+
+This allows the KPI cards and connected visuals to update when the user interacts with the dashboard.
 
 
 
 ## 10. Data Model
 
-The Power BI data model was designed around the Sales table as the central transaction table. The Products and Customers tables provide descriptive information used to analyze sales transactions from different business perspectives.
+The Power BI model uses the Sales table as the central transaction table, with Products and Customers providing the descriptive attributes needed to analyze those transactions.
 
 ### Model Structure
 
-The model consists of:
-
-- **Sales** — central transaction/fact table
-- **Products** — product dimension table
-- **Customers** — customer dimension table
-
-### Sales Table
-
-The Sales table acts as the central fact table because it contains the individual sales transactions and measurable business values such as Quantity, SalesAmount, and Unit Cost.
-The table contains the transaction identifiers SaleID, ProductID, and CustomerID, which allow each transaction to be associated with a product and customer.
-
-### Products Table
-
-The Products table acts as a dimension table containing descriptive information about the products. ProductID serves as the key used to connect product information to sales transactions.
-The table provides attributes such as ProductName, Category, Brand, Color, and Weight, which allow sales and profitability to be analyzed by product characteristics.
-
-### Customers Table
-
-The Customers table acts as a dimension table containing customer-related information. CustomerID serves as the key used to connect customers to their sales transactions.
-The table provides attributes such as Region, Age, Gender, IncomeLevel, and SignupDate, allowing customer-related sales and profitability analysis.
+| Table | Role | Key Field | Analytical Purpose |
+|---|---|---|---|
+| **Sales** | Fact table | SaleID | Stores transaction-level quantities, dates, sales amounts, and costs. |
+| **Products** | Dimension table | ProductID | Provides product, category, brand, color, and weight attributes. |
+| **Customers** | Dimension table | CustomerID | Provides customer, region, age, gender, income level, and signup-date attributes. |
 
 ### Relationships
 
-The Sales table is connected to the Products table through ProductID and to the Customers table through CustomerID.
+The model contains two relationships:
 
-The relationships follow a one-to-many structure:
+```text
+Products[ProductID]  1 ───────── *  Sales[ProductID]
 
-- Customers[CustomerID] → Sales[CustomerID]
-- Products[ProductID] → Sales[ProductID]
-
-This structure allows filters and attributes from the Customers and Products tables to be applied to the related sales transactions.
+Customers[CustomerID]  1 ─────── *  Sales[CustomerID]
 
 ### Model Overview
 
