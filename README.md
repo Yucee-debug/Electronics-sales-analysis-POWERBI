@@ -1,5 +1,17 @@
 ## Electronics Sales Analysis & Power BI Dashboard
 
+## Table of Contents
+
+- [Introduction](#1-introduction)
+- [About the Dataset](#2-about-the-dataset)
+- [Data Cleaning and Transformation](#3-data-cleaning-and-transformation)
+- [Analysis](#4-analysis)
+- [Key Findings](#5-key-findings)
+- [Analysis Questions and Insights](#6-analysis-questions-and-insights)
+- [Dashboard Preview](#7-dashboard-preview)
+- [Tools and Techniques](#8-tools-and-techniques)
+- [Conclusion](#9-conclusion)
+
 ## 1. Introduction
    
 This project analyzes electronics sales data to evaluate overall sales performance, profitability, customer activity, and product performance. The analysis was developed in Microsoft Power BI to transform the raw sales data into an interactive dashboard that supports monitoring, measurement, and evaluation of key business performance indicators.
