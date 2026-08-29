@@ -215,3 +215,29 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 The dashboard provides an interactive view of electronics sales performance, profitability, customer activity, and product performance. Users can use the Region and Category slicers to filter the visualizations and examine specific segments of the business.
 
 
+## 8. Tools and Techniques
+
+### Microsoft Excel
+
+Microsoft Excel was used as the source environment for the electronics sales dataset. The workbook contained the Products, Customers, and Sales tables used for the Power BI analysis.
+
+### Power Query
+
+Power Query in Power BI was used to prepare the dataset before analysis. The cleaning process included checking for missing values and duplicates, standardizing categorical values, trimming unnecessary spaces, converting date fields to the appropriate Date data type, and validating key fields used to connect the tables.
+
+### Power BI Data Modelling
+
+Power BI was used to create the analytical data model by connecting the Sales table to the Products and Customers tables through ProductID and CustomerID. This model allowed sales transactions to be analyzed using product and customer attributes.
+
+### DAX
+
+DAX (Data Analysis Expressions) was used to create measures for the dashboard KPIs and analysis. The calculations included Total Revenue, Total Cost, Total Profit, Total Customers, Units Sold, and Profit Margin.
+
+### Power BI Visualizations
+
+Power BI visualizations were used to present the analysis in an interactive dashboard. KPI cards were used to display overall performance measures, while charts were used to compare profitability by brand, units sold by color, revenue by year, monthly customer activity, and profit by income level.
+
+### GitHub
+
+GitHub was used to document and present the completed analytics project. The repository contains the project overview, dataset description, data preparation process, analytical approach, key findings, insights, and Power BI dashboard preview.
+
