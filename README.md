@@ -2,9 +2,11 @@
 
 An end-to-end electronics sales analysis project developed in Microsoft Power BI to evaluate revenue, profitability, customer activity, and product performance through interactive business intelligence reporting.
 
+
 ### Project Objective
 
 The objective of this project was to transform raw electronics sales data into an interactive Power BI dashboard that enables users to monitor key performance indicators, evaluate profitability, identify product and customer patterns, and support data-driven business decisions.
+
 
 ### Business Questions
 
@@ -15,6 +17,8 @@ The analysis was designed to answer the following questions:
 3. What was the total revenue for the available year?
 4. Which month recorded the lowest customer reach?
 5. Which customer income level generated the highest profit?
+
+   
 
 ## Table of Contents
 
@@ -30,6 +34,8 @@ The analysis was designed to answer the following questions:
 - [Data Model](#10-data-model)
 - [Conclusion](#11-conclusion)
 
+
+
 ## 1. Introduction
    
 This project analyzes electronics sales data to evaluate overall sales performance, profitability, customer activity, and product performance. The analysis was developed in Microsoft Power BI to transform the raw sales data into an interactive dashboard that supports monitoring, measurement, and evaluation of key business performance indicators.
@@ -38,6 +44,8 @@ Dashboard Overview
 
 The Power BI dashboard provides a consolidated view of the electronics business performance using key performance indicators (KPIs) and interactive visualizations. It enables users to monitor total revenue, total cost, total profit, and total customers while examining profitability by brand, purchase volume by color, revenue by year, monthly customer reach, and profit by income level.
 The dashboard also includes interactive Brand and Product name slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
+
+
 
  ## 2. About the Dataset
 
@@ -72,6 +80,7 @@ The Sales table serves as the central transaction table. It connects to the Prod
 The dataset supports analysis of revenue, cost, profit, customer activity, product performance, brand profitability, purchase volume, and customer segmentation.
 
 
+
 ## 3. Data Cleaning and Transformation
 
 Before analysis, the Products, Customers, and Sales tables were reviewed in Power Query to identify missing values, duplicate records, inconsistent formatting, incorrect data types, and potential relationship issues.
@@ -98,6 +107,7 @@ The key fields used to connect the tables were validated. ProductID values in th
 
 The cleaned data was prepared for analysis by standardizing categorical values, removing unnecessary spaces, converting date fields to the Date data type, and ensuring numerical fields used appropriate data types.
 The cleaned Products, Customers, and Sales tables were then loaded into Power BI for data modelling and analysis.
+
 
 
 ## 4. Analysis
@@ -140,6 +150,8 @@ Profit was analyzed across customer income levels to determine how profitability
 Brand and Product name slicers were incorporated into the dashboard to allow users to dynamically filter the analysis. This makes it possible to examine revenue, cost, profit, customer activity, and product performance for selected regions and product categories.
 
 
+
+
 ## 5. Key Findings
 
 The analysis produced four primary KPIs for measuring overall business performance: Total Revenue, Total Cost, Total Profit, and Total Customers. A total of 15,657 units were sold across 5,200 sales transactions.
@@ -178,20 +190,24 @@ A total of 15,657 units were sold across 5,200 recorded sales transactions. This
 
 ### KPI Summary
 
-| KPI | Result | What It Measures |
+### | KPI | Result | What It Measures |
 |---|---:|---|
-| Total Revenue | 3,106,350 | Total sales value generated |
-| Total Cost | 2,174,445 | Total cost associated with units sold |
-| Total Profit | 931,905 | Revenue remaining after recorded costs |
-| Profit Margin | 30% | Percentage of revenue retained as profit |
-| Total Customers | 250 | Number of unique customers in the dataset |
-| Units Sold | 15,657 | Total quantity of products sold |
+| **Total Revenue** | **3,106,350** | Total sales value generated |
+| **Total Cost** | **2,174,445** | Total cost associated with units sold |
+| **Total Profit** | **931,905** | Revenue remaining after recorded costs |
+| **Profit Margin** | **30%** | Percentage of revenue retained as profit |
+| **Total Customers** | **250** | Number of unique customers |
+| **Units Sold** | **15,657** | Total quantity of products sold |
+
 
 ### Dashboard Findings
 
 The dashboard provides a consolidated view of the business's sales and profitability performance. The KPI results show total revenue of 3,106,350 against total cost of 2,174,445, resulting in total profit of 931,905 and an overall profit margin of 30%.
 
 The dashboard also shows that 15,657 units were sold across 5,200 sales transactions, while the customer dataset contains 250 unique customers.
+
+
+
 
 ## 6. Analysis Questions and Insights
 
@@ -236,6 +252,7 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 | Which income level generated the highest profit? | Medium — 346,920 | Medium-income customers contributed the highest profit. |
 
 
+
 ## 7. Dashboard Preview
 
 ![Electronics Overview Power BI Dashboard](electronics-overview.png)
@@ -243,6 +260,7 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 ![Electronics Sales Analysis Power BI Dashboard](electronics-sales-dashboard.png)
 
 The dashboard provides an interactive view of electronics sales performance, profitability, customer activity, and product performance. Users can use the Region and Category slicers to filter the visualizations and examine specific segments of the business.
+
 
 
 ## 8. Tools and Techniques
@@ -270,6 +288,7 @@ Power BI visualizations were used to present the analysis in an interactive dash
 ### GitHub
 
 GitHub was used to document and present the completed analytics project. The repository contains the project overview, dataset description, data preparation process, analytical approach, key findings, insights, and Power BI dashboard preview.
+
 
 
 ## 9. DAX Measures
@@ -360,6 +379,7 @@ Formatted as percentage:
 | Units Sold | Calculates total product quantity sold. |
 | Total Customers | Counts unique customers. |
 | Profit Margin | Calculates profit as a percentage of revenue. |
+
 
 
 ## 10. Data Model
