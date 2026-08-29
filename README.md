@@ -41,20 +41,6 @@ The analysis was designed to answer the following questions:
 This project analyzes electronics sales data to evaluate overall sales performance, profitability, customer activity, and product performance. The analysis was developed in Microsoft Power BI to transform the raw sales data into an interactive dashboard that supports monitoring, measurement, and evaluation of key business performance indicators.
 
 
-## Project Workflow
-
-The project followed an end-to-end data analysis workflow:
-
-1. **Data Profiling**: Reviewed the structure, fields, data types, completeness, and relationships within the dataset.
-2. **Data Cleaning and Transformation** Prepared the source data using Power Query by checking data quality, correcting data types, standardizing fields, and preparing the tables for analysis.
-3. **Data Modelling**: Established relationships between the Sales, Products, and Customers tables.
-4. **DAX Calculations**: Created measures for revenue, cost, profit, profit margin, units sold, and unique customers.
-5. **Exploratory Analysis**: Examined sales, profitability, customer activity, product characteristics, and income-level performance.
-6. **Dashboard Development**: Built interactive Power BI visualizations and KPI cards.
-7. **Insight Generation**: Interpreted the results to identify key performance patterns and findings.
-8. **Documentation**: Documented the analytical process and results in GitHub
-
-
 ## Dashboard Overview
 
 The Power BI dashboard provides a consolidated view of electronics business performance using key performance indicators (KPIs) and interactive visualizations. It enables users to monitor total revenue, total cost, total profit, and total customers while examining profitability by brand, purchase volume by color, revenue by year, monthly customer reach, and profit by income level.
@@ -65,81 +51,43 @@ The dashboard also includes interactive **Brand** and **Product Name** slicers, 
 
  ## 2. About the Dataset
 
-The dataset contains electronics sales transaction data used to analyze sales performance, profitability, customer activity, and product characteristics.
-
-The data was organized into three main tables:
-
-### Sales Table
-
-The Sales table contains the transactional records used to calculate the main sales and profitability measures.
-
-Key fields include:
-
-- SaleID
-- ProductID
-- CustomerID
-- Quantity
-- SalesAmount
-- Unit Cost
-
-The table serves as the central fact table in the Power BI data model.
-
-### Products Table
-
-The Products table contains descriptive information about the electronics products.
-
-Key fields include:
-
-- ProductID
-- ProductName
-- Category
-- Brand
-- Color
-- Weight
-
-These fields were used to analyze product and brand performance, including profitability by brand and purchase volume by color.
-
-### Customers Table
-
-The Customers table contains information about the customers associated with the sales transactions.
-
-Key fields include:
-
-- CustomerID
-- Region
-- Age
-- Gender
-- IncomeLevel
-- SignupDate
-
-These fields were used to analyze customer-related patterns, including customer reach and profitability by income level.
-
-### Dataset Role in the Analysis
-
-The three tables were combined through their key fields to create a structured Power BI data model. The Sales table provides the transaction-level measures, while the Products and Customers tables provide attributes used to segment and analyze the transactions.
+The dataset contains electronics product, customer, and sales transaction information used to evaluate revenue, cost, profitability, sales volume, and customer activity.
 
 ### Dataset Structure
 
-The workbook contains three sheets:
+| Table     | Records | Fields | Purpose                                                                                           |
+| --------- | ------: | -----: | ------------------------------------------------------------------------------------------------- |
+| Products  |     250 |      6 | Contains product details and attributes used to analyze product and brand performance.            |
+| Customers |     250 |      7 | Contains customer demographic and registration information used for customer-level analysis.      |
+| Sales     |   5,200 |      7 | Contains individual sales transactions used to calculate revenue, cost, profit, and sales volume. |
 
-| Sheet | Records | Fields | Description |
-|---|---:|---:|---|
-| Products | 250 | 6 | Contains product details and product attributes. |
-| Customers | 250 | 7 | Contains customer demographic and registration information. |
-| Sales | 5,200 | 7 | Contains individual sales transaction records. |
+### Products
+
+The Products table contains 250 product records with information including ProductID, ProductName, Category, Brand, Color, and Weight.
+
+These fields support analysis of product characteristics, brand profitability, and purchase volume by color.
+
+### Customers
+
+The Customers table contains 250 customer records with information including CustomerID, CustomerName, Region, Age, Gender, IncomeLevel, and SignupDate.
+
+These fields support analysis of customer activity and profitability across income-level segments.
+
+### Sales
+
+The Sales table contains 5,200 transaction records with information including SaleID, ProductID, CustomerID, Quantity, SaleDate, SalesAmount, and Unit Cost.
+
+This table provides the transaction-level data used to calculate the dashboard's revenue, cost, profit, units sold, and customer measures.
 
 
-### Products Table
+### Table Relationships
 
-The Products table contains 250 product records and includes ProductID, ProductName, Category, Brand, Color, and Weight.
+The Sales table serves as the central transaction table. It connects to:
 
-### Customers Table
+* **Products** through ProductID
+* **Customers** through CustomerID
 
-The Customers table contains 250 customer records and includes CustomerID, CustomerName, Region, Age, Gender, IncomeLevel, and SignupDate.
-
-### Sales Table
-
-The Sales table contains 5,200 sales transactions and includes SaleID, ProductID, CustomerID, Quantity, SaleDate, SalesAmount, and Unit Cost.
+This structure allows sales transactions to be analyzed using product and customer attributes.
 
 ### Table Relationships
 
