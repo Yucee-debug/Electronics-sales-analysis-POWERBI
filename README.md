@@ -190,14 +190,14 @@ A total of 15,657 units were sold across 5,200 recorded sales transactions. This
 
 ### KPI Summary
 
-### | KPI | Result | What It Measures |
+| KPI | Result | What It Measures |
 |---|---:|---|
-| **Total Revenue** | **3,106,350** | Total sales value generated |
+| **Total Revenue** | **3,106,350** | Total sales revenue generated |
 | **Total Cost** | **2,174,445** | Total cost associated with units sold |
 | **Total Profit** | **931,905** | Revenue remaining after recorded costs |
-| **Profit Margin** | **30%** | Percentage of revenue retained as profit |
+| **Profit Margin** | **30%** | Profit as a percentage of revenue |
 | **Total Customers** | **250** | Number of unique customers |
-| **Units Sold** | **15,657** | Total quantity of products sold |
+| **Units Sold** | **15,657** | Total number of product units sold |
 
 
 ### Dashboard Findings
