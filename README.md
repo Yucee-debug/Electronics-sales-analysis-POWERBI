@@ -8,7 +8,7 @@ Dashboard Overview
 
 The Power BI dashboard provides a consolidated view of the electronics business performance using key performance indicators (KPIs) and interactive visualizations. It enables users to monitor total revenue, total cost, total profit, and total customers while examining profitability by brand, purchase volume by color, revenue by year, monthly customer reach, and profit by income level.
 
-The dashboard also includes interactive Brand and Category slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
+The dashboard also includes interactive Brand and Product name slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
 
  ## 2. About the Dataset
 
@@ -113,3 +113,58 @@ Profit was analyzed across customer income levels to determine how profitability
 ### Interactive Analysis
 
 Brand and Product name slicers were incorporated into the dashboard to allow users to dynamically filter the analysis. This makes it possible to examine revenue, cost, profit, customer activity, and product performance for selected regions and product categories.
+
+
+## 5. Key Findings
+
+The analysis produced four primary KPIs for measuring overall business performance: Total Revenue, Total Cost, Total Profit, and Total Customers. A total of 15,657 units were sold across 5,200 sales transactions.
+
+### Total Revenue
+
+Total Revenue was 3,106,350. This represents the total sales value generated from all recorded transactions after accounting for the quantity sold in each transaction.
+
+### Total Cost
+
+Total Cost was 2,174,445. This represents the total cost associated with the 15,657 units sold during the analysis period.
+
+### Total Profit
+
+Total Profit was 931,905. Profit was calculated by subtracting Total Cost from Total Revenue.
+
+Profit = Total Revenue − Total Cost
+
+Profit = 3,106,350 − 2,174,445 = 931,905
+
+### Profit Margin
+
+The overall profit margin was approximately 30%. This means that approximately 30% of the total revenue remained as profit after accounting for the recorded product costs.
+
+Profit Margin = (Total Profit ÷ Total Revenue) × 100
+
+Profit Margin = (931,905 ÷ 3,106,350) × 100 = 30%
+
+### Total Customers
+
+The analysis identified 250 unique customers in the Customers table. This KPI represents the number of distinct customers available in the dataset.
+
+### Units Sold
+
+A total of 15,657 units were sold across 5,200 recorded sales transactions. This KPI provides an overall measure of sales volume.
+
+### KPI Summary
+
+| KPI | Result | What It Measures |
+|---|---:|---|
+| Total Revenue | 3,106,350 | Total sales value generated |
+| Total Cost | 2,174,445 | Total cost associated with units sold |
+| Total Profit | 931,905 | Revenue remaining after recorded costs |
+| Profit Margin | 30% | Percentage of revenue retained as profit |
+| Total Customers | 250 | Number of unique customers in the dataset |
+| Units Sold | 15,657 | Total quantity of products sold |
+
+### Dashboard Findings
+
+The dashboard provides a consolidated view of the business's sales and profitability performance. The KPI results show total revenue of 3,106,350 against total cost of 2,174,445, resulting in total profit of 931,905 and an overall profit margin of 30%.
+
+The dashboard also shows that 15,657 units were sold across 5,200 sales transactions, while the customer dataset contains 250 unique customers.
+
