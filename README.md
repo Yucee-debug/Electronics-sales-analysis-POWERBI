@@ -65,7 +65,58 @@ The dashboard also includes interactive **Brand** and **Product Name** slicers, 
 
  ## 2. About the Dataset
 
-The dataset is an Excel workbook containing product, customer, and sales transaction information for an electronics business. The data was used to evaluate sales performance, profitability, customer activity, and product-related performance in Power BI.
+The dataset contains electronics sales transaction data used to analyze sales performance, profitability, customer activity, and product characteristics.
+
+The data was organized into three main tables:
+
+### Sales Table
+
+The Sales table contains the transactional records used to calculate the main sales and profitability measures.
+
+Key fields include:
+
+- SaleID
+- ProductID
+- CustomerID
+- Quantity
+- SalesAmount
+- Unit Cost
+
+The table serves as the central fact table in the Power BI data model.
+
+### Products Table
+
+The Products table contains descriptive information about the electronics products.
+
+Key fields include:
+
+- ProductID
+- ProductName
+- Category
+- Brand
+- Color
+- Weight
+
+These fields were used to analyze product and brand performance, including profitability by brand and purchase volume by color.
+
+### Customers Table
+
+The Customers table contains information about the customers associated with the sales transactions.
+
+Key fields include:
+
+- CustomerID
+- Region
+- Age
+- Gender
+- IncomeLevel
+- SignupDate
+
+These fields were used to analyze customer-related patterns, including customer reach and profitability by income level.
+
+### Dataset Role in the Analysis
+
+The three tables were combined through their key fields to create a structured Power BI data model. The Sales table provides the transaction-level measures, while the Products and Customers tables provide attributes used to segment and analyze the transactions.
 
 ### Dataset Structure
 
