@@ -7,7 +7,6 @@ This project analyzes electronics sales data to evaluate overall sales performan
 Dashboard Overview
 
 The Power BI dashboard provides a consolidated view of the electronics business performance using key performance indicators (KPIs) and interactive visualizations. It enables users to monitor total revenue, total cost, total profit, and total customers while examining profitability by brand, purchase volume by color, revenue by year, monthly customer reach, and profit by income level.
-
 The dashboard also includes interactive Brand and Product name slicers, allowing users to filter the analysis and examine performance for specific customer brand and product categories.
 
  ## 2. About the Dataset
@@ -40,7 +39,6 @@ The Sales table contains 5,200 sales transactions and includes SaleID, ProductID
 ### Table Relationships
 
 The Sales table serves as the central transaction table. It connects to the Products table through ProductID and to the Customers table through CustomerID. These relationships allow product attributes and customer attributes to be analyzed alongside sales transactions.
-
 The dataset supports analysis of revenue, cost, profit, customer activity, product performance, brand profitability, purchase volume, and customer segmentation.
 
 
@@ -55,7 +53,6 @@ The Products, Customers, and Sales tables were checked for missing values. No mi
 ### Duplicate Records
 
 Duplicate records were checked across the three analytical tables. No duplicate rows were identified in the Products, Customers, or Sales tables.
-
 The key identifier columns were also checked. ProductID, CustomerID, and SaleID contained unique values within their respective tables.
 
 ### Standardizing Categorical Values
@@ -70,7 +67,6 @@ The key fields used to connect the tables were validated. ProductID values in th
 ### Data Transformation
 
 The cleaned data was prepared for analysis by standardizing categorical values, removing unnecessary spaces, converting date fields to the Date data type, and ensuring numerical fields used appropriate data types.
-
 The cleaned Products, Customers, and Sales tables were then loaded into Power BI for data modelling and analysis.
 
 
@@ -81,7 +77,6 @@ The analysis focused on measuring overall sales performance, profitability, cust
 ### Overall Business Performance
 
 The overall business performance was evaluated using four key performance indicators: Total Revenue, Total Cost, Total Profit, and Total Customers.
-
 Revenue was calculated by multiplying the SalesAmount by Quantity for each transaction and aggregating the results.
 
 Total Cost was calculated by multiplying Unit Cost by Quantity.
@@ -168,3 +163,44 @@ The dashboard provides a consolidated view of the business's sales and profitabi
 
 The dashboard also shows that 15,657 units were sold across 5,200 sales transactions, while the customer dataset contains 250 unique customers.
 
+## 6. Analysis Questions and Insights
+
+### Question 1: Which brand generated the highest profit?
+
+**Finding:** Apple generated the highest profit at 196,890, while Dell generated the lowest profit at 125,850.
+
+**Insight:** Apple was the most profitable brand in the dataset, generating 71,040 more profit than Dell. This indicates that Apple products made the largest contribution to overall brand-level profitability.
+
+### Question 2: Which product color had the highest purchase volume?
+
+**Finding:** White had the highest purchase volume with 6,120 units sold, followed by Gray with 5,230 units and Black with 4,307 units.
+
+**Insight:** White products recorded the highest sales volume, accounting for approximately 39.1% of the 15,657 units sold. Black recorded the lowest volume at approximately 27.5%.
+
+### Question 3: What was the total revenue by year?
+
+**Finding:** The dataset contains sales records for 2023, generating total revenue of 3,106,350.
+
+**Insight:** Since the available sales data covers only 2023, the dataset does not provide multiple years for a year-over-year growth comparison. The 2023 revenue therefore represents the total revenue for the available period rather than evidence of annual growth or decline.
+
+### Question 4: Which month had the lowest customer reach?
+
+**Finding:** January, February, and March each recorded 250 unique customers.
+
+**Insight:** There was no lowest-performing month based on customer reach because all three months recorded the same number of unique customers. Customer reach remained consistent across the available three-month period.
+
+### Question 5: Which customer income level generated the highest profit?
+
+**Finding:** The Medium income-level segment generated the highest profit at 346,920, followed by the High income-level segment at 302,205 and the Low income-level segment at 282,780.
+
+**Insight:** The Medium income-level segment contributed the largest share of profit among the three income groups, generating approximately 37.2% of the total profit.
+
+### Analysis Summary
+
+| Analysis Question | Result | Key Insight |
+|---|---|---|
+| Which brand generated the highest profit? | Apple — 196,890 | Apple was the most profitable brand. |
+| Which color had the highest purchase volume? | White — 6,120 units | White products had the highest sales volume. |
+| What was the yearly revenue? | 2023 — 3,106,350 | 2023 represents the available sales period; no year-over-year comparison is possible. |
+| Which month had the lowest customer reach? | No lowest month | January, February, and March each recorded 250 customers. |
+| Which income level generated the highest profit? | Medium — 346,920 | Medium-income customers contributed the highest profit. |
