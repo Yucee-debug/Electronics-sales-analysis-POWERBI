@@ -255,11 +255,15 @@ The dashboard also shows that 15,657 units were sold across 5,200 sales transact
 
 ## 7. Dashboard Preview
 
-![Electronics Overview Power BI Dashboard](electronics-overview.png)
+The Power BI dashboard provides an interactive overview of electronics sales performance, profitability, customer activity, and product performance.
 
-![Electronics Sales Analysis Power BI Dashboard](electronics-sales-dashboard.png)
+### Electronics Overview
 
-The dashboard provides an interactive view of electronics sales performance, profitability, customer activity, and product performance. Users can use the Region and Category slicers to filter the visualizations and examine specific segments of the business.
+![Electronics Overview Dashboard](ELECTRONICS%20OVERVIEW.png)
+
+### Electronics Sales Analysis Dashboard
+
+![Electronics Sales Analysis Dashboard](ELECTRONICS%20SALES%20ANALYSIS%20DASHBOARD.png)
 
 
 
