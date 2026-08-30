@@ -243,6 +243,7 @@ No rows were removed from the three analytical tables because the identified iss
 
 
 
+
 ## 4. Analysis
 
 The analysis was performed in Power BI using the cleaned Products, Customers, and Sales tables. The analysis focused on the financial performance of the business, product performance, customer activity, and profitability across customer and product segments.
@@ -537,193 +538,83 @@ This structure allows a user to begin with the headline KPIs and then use the su
 
 ## 8. Tools and Techniques
 
+The analysis was completed using a combination of Excel, Power Query, Power BI, DAX, and GitHub. Each tool was used at a specific stage of the workflow, from preparing the raw data to communicating the final results.
+
 ### Microsoft Excel
 
-Microsoft Excel was used as the source environment for the electronics sales dataset. The workbook contained the Products, Customers, and Sales tables used for the Power BI analysis.
+Excel was used as the source environment for the supplied dataset. The workbook contained the Products, Customers, and Sales data used for the analysis, together with the original task instructions.
+
+The raw workbook was reviewed before importing the analytical tables into Power BI.
 
 ### Power Query
 
-Power Query in Power BI was used to prepare the dataset before analysis. The cleaning process included checking for missing values and duplicates, standardizing categorical values, trimming unnecessary spaces, converting date fields to the appropriate Date data type, and validating key fields used to connect the tables.
+Power Query was used to prepare the raw data before analysis.
+
+The transformation process included:
+
+- Reviewing the structure of each table.
+- Checking for missing and duplicate records.
+- Trimming inconsistent Region values.
+- Standardizing inconsistent Gender values.
+- Converting the Sales `SaleDate` field into a proper Date data type.
+- Checking numeric fields such as Quantity, SalesAmount, and Unit Cost.
+- Preparing the three analytical tables for modelling.
+
+These transformations ensured that categories could be grouped consistently and that the Sales table could be analyzed correctly by month and year.
 
 ### Power BI Data Modelling
 
-Power BI was used to create the analytical data model by connecting the Sales table to the Products and Customers tables through ProductID and CustomerID. This model allowed sales transactions to be analyzed using product and customer attributes.
+Power BI was used to establish relationships between the analytical tables.
 
-### DAX
-
-DAX (Data Analysis Expressions) was used to create measures for the dashboard KPIs and analysis. The calculations included Total Revenue, Total Cost, Total Profit, Total Customers, Units Sold, and Profit Margin.
-
-### Power BI Visualizations
-
-Power BI visualizations were used to present the analysis in an interactive dashboard. KPI cards were used to display overall performance measures, while charts were used to compare profitability by brand, units sold by color, revenue by year, monthly customer activity, and profit by income level.
-
-### GitHub
-
-GitHub was used to document and present the completed analytics project. The repository contains the project overview, dataset description, data preparation process, analytical approach, key findings, insights, and Power BI dashboard preview.
-
-
-
-## ## 9. DAX Measures
-
-The dashboard uses six DAX measures to calculate the financial, sales-volume, customer, and profitability metrics displayed in the KPI cards and analytical visuals.
-
-### 9.1 Total Revenue
-
-```DAX
-Total Revenue =
-SUMX(
-    Sales,
-    Sales[SalesAmount] * Sales[Quantity]
-)
-```
-
-This measure calculates revenue at the transaction level by multiplying the recorded `SalesAmount` by the `Quantity` for each Sales record and then adding the resulting values.
-
-**Dashboard result:** 3,106,350
-
----
-
-### 9.2 Total Cost
-
-```DAX
-Total Cost =
-SUMX(
-    Sales,
-    Sales[Unit Cost] * Sales[Quantity]
-)
-```
-
-This measure calculates the total cost associated with the units recorded in the Sales table. For each transaction, `Unit Cost` is multiplied by `Quantity`, and the resulting costs are summed.
-
-**Dashboard result:** 2,174,445
-
----
-
-### 9.3 Total Profit
-
-```DAX
-Total Profit =
-[Total Revenue] - [Total Cost]
-```
-
-This measure derives profit from the two previously created measures rather than recalculating the transaction-level values.
-
-**Calculation:**
-
-3,106,350 − 2,174,445 = **931,905**
-
-**Dashboard result:** 931,905
-
----
-
-### 9.4 Units Sold
-
-```DAX
-Units Sold =
-SUM(Sales[Quantity])
-```
-
-This measure sums the `Quantity` field in the Sales table to determine the total number of product units represented by the recorded transactions.
-
-**Dashboard result:** 15,657 units
-
----
-
-### 9.5 Total Customers
-
-```DAX
-Total Customers =
-DISTINCTCOUNT(Customers[CustomerID])
-```
-
-This measure counts each customer only once using the unique `CustomerID`.
-
-`DISTINCTCOUNT` is important here because the same customer can be associated with multiple records in the Sales table. Counting Sales rows would measure transactions, not customers.
-
-**Dashboard result:** 250 customers
-
----
-
-### 9.6 Profit Margin
-
-```DAX
-Profit Margin =
-DIVIDE(
-    [Total Profit],
-    [Total Revenue],
-    0
-)
-```
-
-This measure expresses profit as a proportion of revenue.
-
-**Calculation:**
-
-931,905 ÷ 3,106,350 = **0.30**
-
-Formatted as a percentage:
-
-**30%**
-
----
-
-### Measure Summary
-
-| Measure             | DAX Purpose                                                 | Dashboard Result |
-| ------------------- | ----------------------------------------------------------- | ---------------: |
-| **Total Revenue**   | Calculates transaction revenue from SalesAmount × Quantity. |        3,106,350 |
-| **Total Cost**      | Calculates transaction cost from Unit Cost × Quantity.      |        2,174,445 |
-| **Total Profit**    | Subtracts Total Cost from Total Revenue.                    |          931,905 |
-| **Units Sold**      | Sums the Quantity field.                                    |           15,657 |
-| **Total Customers** | Counts unique CustomerID values.                            |              250 |
-| **Profit Margin**   | Divides Total Profit by Total Revenue.                      |              30% |
-
-### How the Measures Work With the Dashboard
-
-These measures are not fixed values. They are evaluated within the current filter context in Power BI.
-
-For example, when a user selects a specific **Brand** or **Product Name** using the dashboard slicers, the relevant Sales records are filtered through the Products-to-Sales relationship. The measures then recalculate using the filtered records.
-
-This allows the KPI cards and connected visuals to update when the user interacts with the dashboard.
-
-
-
-## 10. Data Model
-
-The Power BI model uses the Sales table as the central transaction table, with Products and Customers providing the descriptive attributes needed to analyze those transactions.
-
-### Model Structure
-
-| Table | Role | Key Field | Analytical Purpose |
-|---|---|---|---|
-| **Sales** | Fact table | SaleID | Stores transaction-level quantities, dates, sales amounts, and costs. |
-| **Products** | Dimension table | ProductID | Provides product, category, brand, color, and weight attributes. |
-| **Customers** | Dimension table | CustomerID | Provides customer, region, age, gender, income level, and signup-date attributes. |
-
-### Relationships
-
-The model contains two relationships:
+The model connects:
 
 ```text
 Products[ProductID]  1 ───────── *  Sales[ProductID]
 
 Customers[CustomerID]  1 ─────── *  Sales[CustomerID]
+```
 
-### Model Overview
 
+
+## 9. DAX Measures
+
+DAX (Data Analysis Expressions) was used to create the measures that drive the dashboard KPIs and analytical visuals. The measures calculate business results directly from the Sales and Customers tables and respond to the dashboard's interactive filters.
+
+### Total Revenue
+
+```DAX
+Total Revenue =
+SUM(Sales[SalesAmount])
+```
+
+
+
+## 10. Data Model
+
+The Power BI data model was structured around the **Sales** table, which contains the transaction records, with the **Products** and **Customers** tables providing the attributes required to analyze those transactions.
+
+### Model Structure
+
+```text
 Customers
 CustomerID
-     │
-     │ 1 : *
-     ▼
-   Sales
-CustomerID
-ProductID
-     ▲
-     │ 1 : *
-     │
+    │
+    │ 1 : *
+    ▼
+  Sales
+  SaleID
+  CustomerID
+  ProductID
+  Quantity
+  SaleDate
+  SalesAmount
+  Unit Cost
+    ▲
+    │ 1 : *
+    │
 Products
 ProductID
+```
 
 ### Why the Model Was Used
 
@@ -732,10 +623,19 @@ For example, the model allows total profit to be analyzed by Brand from the Prod
 
 
 
+
+
 ## 11. Conclusion
 
-The electronics sales analysis provided an overview of sales performance, profitability, customer activity, and product performance for the available data period. The business generated total revenue of 3,106,350 from 15,657 units sold, with total costs of 2,174,445 resulting in total profit of 931,905 and an overall profit margin of 30%.
-At the brand level, Apple recorded the highest profit at 196,890, while White products recorded the highest purchase volume with 6,120 units sold. The Medium income-level customer segment generated the highest profit at 346,9
-Customer reach remained consistent across January, February, and March, with each month recording 250 unique customers. Since the available sales data covers 2023 only, a year-over-year revenue growth comparison could not be established.
-The Power BI dashboard consolidates these findings into an interactive reporting tool, allowing users to monitor key performance indicators and explore results using Region and Category filters.
+The electronics sales analysis provides a consolidated view of the financial, product, and customer performance represented in the available sales data.
+
+The analysis recorded **£3,106,350 in revenue**, **£2,174,445 in cost**, and **£931,905 in profit** across **5,200 sales transactions** and **250 unique customers**. The results also identified differences in performance across brands, products, colors, regions, months, and customer income levels.
+
+At the product and brand level, **Apple recorded the highest brand profit at £196,890**, while **Headphones generated the highest product profit at £167,565**. **White products recorded the highest purchase volume at 6,120 units**, while the **Medium income-level customer segment generated the highest profit at £346,920**.
+
+The dashboard brings these measures and comparisons together in an interactive reporting environment. Users can begin with the overall financial position and then investigate specific products, categories, or brands using the available slicers.
+
+From a monitoring and evaluation perspective, the dashboard provides a repeatable way to track revenue, cost, profitability, transaction activity, product performance, and customer-segment contribution using the underlying sales data. It also makes the limitations of the available data visible, particularly the fact that the dataset contains sales records for January to March 2023 only and therefore does not support a full-year or year-over-year performance assessment.
+
+Overall, the project demonstrates how structured data preparation, relational modelling, DAX measures, and interactive Power BI visualizations can be combined to convert raw electronics sales records into a business performance monitoring tool.
 
