@@ -82,7 +82,6 @@ The purpose of the dashboard is therefore not only to display sales figures, but
 
 
 
-## 2. About the Dataset
 
 ## 2. About the Dataset
 
@@ -346,103 +345,105 @@ Headphones generated the highest product-level profit at **£167,565**, closely 
 
 ## 5. Key Findings
 
-The analysis produced six core performance measures that summarize the financial performance, sales volume, and customer base represented in the dataset.
+The analysis produced five headline KPIs for monitoring the overall performance represented in the dataset, supported by product, brand, customer, and profitability analysis.
 
 ### KPI Summary
 
-| KPI                 |        Result | Interpretation                                                                     |
-| ------------------- | ------------: | ---------------------------------------------------------------------------------- |
-| **Total Revenue**   | **3,106,350** | Total revenue generated across the recorded sales transactions.                    |
-| **Total Cost**      | **2,174,445** | Total recorded product cost associated with the units sold.                        |
-| **Total Profit**    |   **931,905** | Profit generated after subtracting total cost from total revenue.                  |
-| **Profit Margin**   |       **30%** | Approximately 30% of recorded revenue remained as profit after the recorded costs. |
-| **Total Customers** |       **250** | Number of unique customers represented in the Customers table.                     |
-| **Units Sold**      |    **15,657** | Total quantity of products recorded across the 5,200 sales transactions.           |
+| KPI | Result | What It Shows |
+|---|---:|---|
+| **Total Revenue** | £3,106,350 | Total revenue generated from the recorded sales transactions. |
+| **Total Profit** | £931,905 | Profit remaining after deducting the recorded product costs from revenue. |
+| **Total Cost** | £2,174,445 | Total product cost associated with the recorded quantities sold. |
+| **Total Sales** | 5,200 | Total number of sales transactions recorded in the Sales table. |
+| **Total Customers** | 250 | Number of unique customers represented in the customer data. |
 
-### Overall Financial Performance
+### Financial Performance
 
-The dataset generated **3,106,350 in total revenue** and **2,174,445 in total cost**, resulting in **931,905 in profit**. The resulting profit margin was approximately **30%**.
+The business generated **£3.11M in revenue** from the available sales records, with **£2.17M in recorded costs**, resulting in **£931.91K in profit**.
 
-### Sales Volume and Customer Base
+The relationship between revenue, cost, and profit gives an overall profit margin of approximately **30%**. This provides a baseline measure of the profitability of the sales recorded in the dataset.
 
-A total of **15,657 units** were recorded across **5,200 sales transactions**. The Customers table contains **250 unique customers**.
+### Sales and Customer Activity
 
-### Brand Performance
+The dataset contains **5,200 sales transactions** representing **15,657 units sold** and **250 unique customers**.
 
-**Apple generated the highest brand-level profit at 196,890**, while Dell recorded the lowest among the brands shown, at **125,850**.
+The distinction between Total Sales and Total Customers is important: Total Sales represents the number of transaction records, while Total Customers represents unique customers rather than the number of transactions made by those customers.
+
+Customer activity was consistent across the three available monthly periods, with **250 unique customers recorded in January, February, and March**.
+
+### Product Performance
+
+The product profitability analysis shows that **Headphones generated the highest product-level profit at £167,565**, followed closely by **Monitor at £166,365**.
+
+At the other end of the ranking, **Phone generated £103,035**, making it the lowest-profit product among the seven products displayed.
+
+### Brand Profitability
+
+**Apple generated the highest brand-level profit at £196,890**, followed by Lenovo at £160,140 and Samsung at £159,510.
+
+**Dell recorded the lowest brand-level profit at £125,850** among the six brands analyzed.
+
+This identifies Apple as the strongest brand contributor to profit within the available sales records.
 
 ### Product Color Performance
 
 **White recorded the highest purchase volume with 6,120 units**, followed by Gray with 5,230 units and Black with 4,307 units.
 
-### Customer Income-Level Performance
+White therefore accounted for approximately **39.1% of the 15,657 units sold**.
 
-The **Medium income-level segment generated the highest profit at 346,920**, followed by High at 302,205 and Low at 282,780.
+This finding describes sales volume rather than profitability; the highest-volume color is not automatically the most profitable color.
 
-### KPI Summary
+### Customer Income-Level Profitability
 
-| KPI | Result | What It Measures |
-|---|---:|---|
-| **Total Revenue** | **3,106,350** | Total sales revenue generated |
-| **Total Cost** | **2,174,445** | Total cost associated with units sold |
-| **Total Profit** | **931,905** | Revenue remaining after recorded costs |
-| **Profit Margin** | **30%** | Profit as a percentage of revenue |
-| **Total Customers** | **250** | Number of unique customers |
-| **Units Sold** | **15,657** | Total number of product units sold |
+The **Medium income-level segment generated the highest profit at £346,920**, followed by High at £302,205 and Low at £282,780.
 
+Medium-income customers contributed approximately **37.2% of the total £931,905 profit** represented in the analysis.
 
-### Dashboard Findings
+### Overall Finding
 
-The dashboard provides a consolidated view of the business's sales and profitability performance. The KPI results show total revenue of 3,106,350 against total cost of 2,174,445, resulting in total profit of 931,905 and an overall profit margin of 30%.
-
-The dashboard also shows that 15,657 units were sold across 5,200 sales transactions, while the customer dataset contains 250 unique customers.
-
+The analysis shows that the business generated a positive profit position within the available sales records, with Apple leading brand profitability, Headphones leading product profitability, White leading purchase volume, and the Medium income-level segment contributing the highest profit among the customer income groups analyzed.
 
 
 
 ## 6. Analysis Questions and Insights
 
-The dashboard was used to answer the five business questions defined for the analysis.
+The analysis was designed to answer five business questions using the cleaned sales, product, and customer data.
 
-### Question 1: Which brand generated the highest profit?
+### 1. Which brand generated the highest profit?
 
-**Finding:** Apple generated the highest profit at **196,890**.
+**Result:** Apple generated the highest profit at **£196,890**.
 
-**Insight:** Among the brands displayed in the analysis, Apple contributed the largest amount of profit. This makes Apple the strongest brand in terms of profit contribution within the analyzed sales records.
+**Insight:** Apple was the strongest profit-contributing brand among the six brands analyzed. Its profit was higher than Lenovo (£160,140), Samsung (£159,510), HP (£147,990), Asus (£141,525), and Dell (£125,850).
 
-The result can be monitored alongside the other brands to identify whether the difference is driven by higher sales volume, higher selling values, lower costs, or a combination of these factors.
+From a monitoring perspective, Apple should remain a key brand to track because changes in its sales volume, revenue, or cost could have a noticeable effect on overall profitability.
 
+---
 
+### 2. Which product color recorded the highest purchase volume?
 
-### Question 2: Which product color recorded the highest purchase volume?
+**Result:** White recorded the highest purchase volume at **6,120 units**.
 
-**Finding:** White recorded the highest purchase volume with **6,120 units sold**.
+White represented approximately **39.1%** of the total **15,657 units sold**, compared with 5,230 units for Gray and 4,307 units for Black.
 
-The other colors recorded:
+**Insight:** White products accounted for the largest share of recorded unit volume. This identifies White as the strongest color category by sales volume in the available data.
 
-- **Gray:** 5,230 units
-- **Black:** 4,307 units
+However, high volume should not be interpreted as high profitability without examining the associated revenue and cost.
 
-White accounted for approximately **39.1%** of the total **15,657 units sold**.
+---
 
-**Insight:** White products represented the largest share of recorded unit volume during the analyzed period. However, purchase volume alone does not establish that White products generated the highest profit because profitability also depends on selling values and costs.
+### 3. What was the total revenue for the available sales year?
 
+**Result:** The Sales data generated **£3,106,350 in revenue during 2023**.
 
+**Insight:** The dataset represents only part of 2023, with transaction dates available for January, February, and March. Therefore, £3,106,350 should be treated as the revenue recorded in the supplied dataset rather than a full-year 2023 revenue figure.
 
-### Question 3: What was the total revenue for the available sales year?
+The available data also does not support a year-over-year revenue comparison because no second year is present.
 
-**Finding:** The dataset generated **3,106,350 in total revenue during 2023**.
+---
 
-The Sales table contains transactions from January through March 2023.
+### 4. Which month recorded the lowest customer reach?
 
-**Insight:** The available dataset represents sales activity for part of 2023 rather than a complete twelve-month sales history. Therefore, the revenue figure should be interpreted as the total revenue recorded in the supplied dataset, not as a full-year estimate or a year-over-year growth measure.
-
-
-### Question 4: Which month recorded the lowest customer reach?
-
-**Finding:** There was **no single lowest month**.
-
-Each of the three months represented in the Sales data recorded **250 unique customers**:
+**Result:** There was **no single lowest month**.
 
 | Month | Unique Customers |
 |---|---:|
@@ -450,36 +451,27 @@ Each of the three months represented in the Sales data recorded **250 unique cus
 | February | 250 |
 | March | 250 |
 
-**Insight:** Customer reach was identical across January, February, and March in the available sales records. Therefore, the analysis does not identify a month with lower customer reach.
+**Insight:** Customer reach was identical across the three available monthly periods. Each month recorded 250 unique customers, so the data does not identify a month with lower customer reach.
 
-This result should be reported as a **three-way tie**, rather than selecting one month as the lowest-performing month.
+This should be reported as a three-way tie rather than selecting one month as the lowest-performing month.
 
+---
 
-### Question 5: Which customer income level generated the highest profit?
+### 5. Which customer income level generated the highest profit?
 
-**Finding:** The **Medium income-level segment** generated the highest profit at **346,920**.
-
-Profit by income level was:
+**Result:** The **Medium income-level segment generated the highest profit at £346,920**.
 
 | Income Level | Profit |
 |---|---:|
-| Medium | 346,920 |
-| High | 302,205 |
-| Low | 282,780 |
+| Medium | £346,920 |
+| High | £302,205 |
+| Low | £282,780 |
 
-Medium-income customers contributed approximately **37.2%** of the total **931,905 profit**.
+Medium-income customers contributed approximately **37.2% of the total £931,905 profit**.
 
-**Insight:** The Medium income-level segment was the largest contributor to total profit among the three income groups. The result indicates that this customer segment is particularly important to the profitability represented in the dataset, although the analysis does not by itself establish why this segment generated more profit.
+**Insight:** The Medium income-level segment was the largest contributor to profit among the three income groups. This makes the segment important for continued performance monitoring.
 
-### Analysis Summary
-
-| Analysis Question | Result | Key Insight |
-|---|---|---|
-| Which brand generated the highest profit? | Apple — 196,890 | Apple was the most profitable brand. |
-| Which color had the highest purchase volume? | White — 6,120 units | White products had the highest sales volume. |
-| What was the yearly revenue? | 2023 — 3,106,350 | 2023 represents the available sales period; no year-over-year comparison is possible. |
-| Which month had the lowest customer reach? | No lowest month | January, February, and March each recorded 250 customers. |
-| Which income level generated the highest profit? | Medium — 346,920 | Medium-income customers contributed the highest profit. |
+The analysis identifies the difference in profit contribution but does not establish the underlying cause, such as differences in purchasing frequency, product selection, quantity purchased, or transaction value.
 
 
 
