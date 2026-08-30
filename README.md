@@ -18,19 +18,20 @@ The analysis was designed to answer the following questions:
 4. Which month recorded the lowest customer reach?
 5. Which customer income level generated the highest profit?
 
+
 ## Table of Contents
 
-- [Introduction](#1-introduction)
-- [About the Dataset](#2-about-the-dataset)
-- [Data Cleaning and Transformation](#3-data-cleaning-and-transformation)
-- [Data Model](#4-data-model)
-- [Analysis](#5-analysis)
-- [Key Findings](#6-key-findings)
-- [Analysis Questions and Insights](#7-analysis-questions-and-insights)
-- [Dashboard Preview](#8-dashboard-preview)
-- [DAX Measures](#9-dax-measures)
-- [Tools and Techniques](#10-tools-and-techniques)
-- [Conclusion](#11-conclusion)
+- [1. Introduction](#1-introduction)
+- [2. About the Dataset](#2-about-the-dataset)
+- [3. Data Cleaning and Transformation](#3-data-cleaning-and-transformation)
+- [4. Analysis](#4-analysis)
+- [5. Key Findings](#5-key-findings)
+- [6. Analysis Questions and Insights](#6-analysis-questions-and-insights)
+- [7. Dashboard Preview](#7-dashboard-preview)
+- [8. Tools and Techniques](#8-tools-and-techniques)
+- [9. DAX Measures](#9-dax-measures)
+- [10. Data Model](#10-data-model)
+- [11. Conclusion](#11-conclusion)
 
 
 
@@ -344,6 +345,9 @@ Product-level profit was also examined to identify the products contributing the
 
 Headphones generated the highest product-level profit at **£167,565**, closely followed by Monitor at **£166,365**.
 
+
+
+
 ## 5. Key Findings
 
 The analysis produced five headline KPIs for monitoring the overall performance represented in the dataset, supported by product, brand, customer, and profitability analysis.
@@ -578,13 +582,57 @@ Customers[CustomerID]  1 ─────── *  Sales[CustomerID]
 
 ## 9. DAX Measures
 
-DAX (Data Analysis Expressions) was used to create the measures that drive the dashboard KPIs and analytical visuals. The measures calculate business results directly from the Sales and Customers tables and respond to the dashboard's interactive filters.
+DAX (Data Analysis Expressions) was used to create the measures that power the KPI cards and the analytical visuals in the Power BI report.
 
-### Total Revenue
+The measures were created from the Sales and Customers tables so that the results are calculated directly from the underlying records and respond to the report's filter context.
+
+ Total Revenue
 
 ```DAX
 Total Revenue =
 SUM(Sales[SalesAmount])
+```
+
+Total cost
+
+```DAX
+Total Cost =
+SUMX(
+    Sales,
+    Sales[Quantity] * Sales[Unit Cost]
+)
+```
+
+Total Profit
+
+```DAX
+Total Profit =
+[Total Revenue] - [Total Cost]
+```
+
+Total Sales
+
+```DAX
+Total Sales =
+COUNTROWS(Sales)
+```
+
+Total Customers
+
+```DAX
+Total Customers =
+DISTINCTCOUNT(Customers[CustomerID])
+```
+
+Profit Margins
+
+```DAX
+Profit Margin =
+DIVIDE(
+    [Total Profit],
+    [Total Revenue],
+    0
+)
 ```
 
 
