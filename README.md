@@ -32,28 +32,51 @@ The analysis was designed to answer the following questions:
 - [Tools and Techniques](#10-tools-and-techniques)
 - [Conclusion](#11-conclusion)
 
+
+
 ## 1. Introduction
 
 ### Electronics Business Overview
 
-The business operates in the electronics retail space, where sales performance depends on product demand, brand performance, customer activity, pricing, and profitability. Because these factors directly affect revenue generation and business performance, management needs a clear way to monitor sales results and identify areas requiring attention.
+This project analyzes sales performance for an electronics business using transaction-level sales data together with product and customer information.
 
-This analysis was developed to evaluate the performance of the electronics business using transaction-level sales data combined with product and customer information. The analysis focuses on revenue, cost, profit, sales volume, customer activity, product performance, brand profitability, and customer income-level performance.
+The analysis was developed to monitor the business from three main perspectives: **financial performance, product performance, and customer performance**. This provides a structured way to evaluate how much revenue the business generated, how much it spent on the products sold, how much profit was retained, which products and brands contributed to performance, and how customer activity varied across the available sales period.
 
-### Analysis Dashboard
+The analysis covers sales transactions recorded from **January to March 2023**, with the available Sales data ending on **March 10, 2023**.
 
-The Electronics Sales Analysis Dashboard was developed in Microsoft Power BI to convert the raw sales data into an interactive business performance monitoring tool.
+### Business Overview Dashboard
 
-The dashboard provides a consolidated view of four core Key Performance Indicators (KPIs):
+The first Power BI dashboard page, **Business Overview**, provides a management-level view of the business performance.
 
-* **Total Revenue** — measures the total value generated from sales.
-* **Total Cost** — measures the total cost associated with the recorded sales transactions.
-* **Total Profit** — measures the financial return generated after accounting for the recorded sales costs.
-* **Total Customers** — measures the number of customers represented in the analysis.
+The dashboard tracks five headline measures:
 
-The dashboard also provides supporting analysis to evaluate product sales volume, monthly customer activity, annual revenue, brand profitability, and profitability across customer income levels.
+- **Total Revenue** — £3.11M
+- **Total Profit** — £931.91K
+- **Total Cost** — £2.17M
+- **Total Sales** — 5,200 sales transactions
+- **Total Customers** — 250 unique customers
 
-Interactive **Product Name** and **Brand** slicers allow the analysis to be filtered to specific products or brands. This enables users to move from an overall view of business performance to a more focused evaluation of individual products and brands.
+The page also provides a monthly financial breakdown of **Total Profit, Total Revenue, and Total Cost** by region, allowing performance to be reviewed across March, January, and February.
+
+The product performance visual ranks the products by profit, with **Headphones recording the highest displayed profit at approximately £168K**, followed by Monitor at approximately £166K.
+
+Interactive **Product Name, Category, and Brand** slicers allow users to narrow the dashboard to specific product, category, or brand selections.
+
+### Business Analysis Dashboard
+
+The second Power BI dashboard page, **Business Analysis**, focuses on identifying patterns and differences within the sales, customer, product, and profitability data.
+
+The page examines:
+
+- Purchase volume by product color
+- Monthly customer activity
+- Revenue for the available sales year
+- Profitability by brand
+- Profitability by customer income level
+
+The dashboard also includes the same **Product Name, Category, and Brand** filtering controls, allowing users to investigate these measures at a more focused product or brand level.
+
+Together, the two dashboard pages provide an overview-to-detail reporting structure: the **Business Overview** page focuses on monitoring overall financial and product performance, while the **Business Analysis** page supports comparison and interpretation of the underlying performance patterns.
 
 The purpose of the dashboard is therefore not only to display sales figures, but to provide a structured view of business performance that supports monitoring, comparison, evaluation, and data-driven decision-making.
 
@@ -61,199 +84,265 @@ The purpose of the dashboard is therefore not only to display sales figures, but
 
 ## 2. About the Dataset
 
-The dataset is an electronics sales dataset provided as an Excel workbook. It contains product information, customer information, and transaction-level sales records used to evaluate sales performance, profitability, customer activity, and product demand.
+## 2. About the Dataset
 
-### Workbook Structure
+The analysis is based on an Excel workbook containing product, customer, and sales information. Three tables were used for the Power BI analysis: **Products, Customers, and Sales**. A fourth sheet, **Sheet1**, contains the original task instruction and was not used as an analytical table.
 
-The workbook contains four sheets:
+### Dataset Structure
 
-| Sheet     | Records | Fields | Use in the Project                                                                                             |
-| --------- | ------: | -----: | -------------------------------------------------------------------------------------------------------------- |
-| Products  |     250 |      6 | Product attributes used for product, brand, and color analysis.                                                |
-| Customers |     250 |      7 | Customer attributes used for customer activity and income-level analysis.                                      |
-| Sales     |   5,200 |      7 | Transaction-level records used for revenue, cost, profit, and sales-volume calculations.                       |
-| Sheet1    |       — |      1 | Contains the project instructions and analytical requirements; it was not included in the Power BI data model. |
+| Table | Records | Purpose |
+|---|---:|---|
+| **Products** | 250 | Provides product attributes used to analyze product, category, brand, and color performance. |
+| **Customers** | 250 | Provides customer attributes used to analyze customer activity, region, gender, age, and income level. |
+| **Sales** | 5,200 | Contains the transaction records used to calculate revenue, cost, profit, sales volume, and customer activity. |
 
 ### Products Table
 
-The Products table contains 250 product records and six fields:
+The Products table contains **250 product records** and six fields:
 
-* **ProductID** — unique identifier assigned to each product.
-* **ProductName** — name of the product.
-* **Category** — product category.
-* **Brand** — product brand.
-* **Color** — product color.
-* **Weight** — product weight.
+| Field | Description |
+|---|---|
+| `ProductID` | Unique identifier for each product. |
+| `ProductName` | Name of the product. |
+| `Category` | Product category. |
+| `Brand` | Product brand. |
+| `Color` | Product color. |
+| `Weight` | Product weight. |
 
-The table contains seven product names, six brands, two categories, and three colors. These attributes were used to evaluate product and brand performance and compare purchase volume by product color.
+The table contains **7 product names, 2 categories, 6 brands, and 3 colors**.
 
 ### Customers Table
 
-The Customers table contains 250 customer records and seven fields:
+The Customers table contains **250 customer records** and seven fields:
 
-* **CustomerID** — unique identifier assigned to each customer.
-* **CustomerName** — customer name.
-* **Region** — customer's region.
-* **Age** — customer's age.
-* **Gender** — customer's gender.
-* **IncomeLevel** — customer's income segment.
-* **SignupDate** — customer's registration date.
+| Field | Description |
+|---|---|
+| `CustomerID` | Unique identifier for each customer. |
+| `CustomerName` | Customer name. |
+| `Region` | Customer's geographical region. |
+| `Age` | Customer age. |
+| `Gender` | Customer gender. |
+| `IncomeLevel` | Customer income-level segment. |
+| `SignupDate` | Customer registration date. |
 
-The customer attributes were used to evaluate customer activity and compare profitability across income-level segments.
+The customer records cover four regions after standardizing the region values: **North, East, South, and West**.
+
+The income-level groups are **Low, Medium, and High**.
 
 ### Sales Table
 
-The Sales table contains 5,200 transaction records and seven fields:
+The Sales table contains **5,200 transaction records** and seven fields:
 
-* **SaleID** — unique identifier for each sales transaction.
-* **ProductID** — identifies the product associated with the transaction.
-* **CustomerID** — identifies the customer associated with the transaction.
-* **Quantity** — number of units recorded in the transaction.
-* **SaleDate** — date on which the transaction occurred.
-* **SalesAmount** — recorded selling amount per unit.
-* **Unit Cost** — recorded cost per unit.
+| Field | Description |
+|---|---|
+| `SaleID` | Unique identifier for each sales transaction. |
+| `ProductID` | Identifies the product involved in the transaction. |
+| `CustomerID` | Identifies the customer associated with the transaction. |
+| `Quantity` | Number of units recorded in the transaction. |
+| `SaleDate` | Date of the sales transaction. |
+| `SalesAmount` | Sales amount recorded for the transaction. |
+| `Unit Cost` | Cost per unit associated with the transaction. |
 
-The Sales table provides the transaction-level data used to calculate revenue, cost, profit, units sold, and other performance measures.
+The Sales table contains transactions recorded on **January 1, February 15, and March 10, 2023**, representing the three monthly periods available in the supplied dataset.
 
-### Data Coverage
+Across the 5,200 transactions, the recorded quantity totals **15,657 units**.
 
-The Sales table contains transactions from **January 1, 2023 to March 10, 2023**.
+### Data Relationships
 
-Therefore, the analysis represents the sales activity contained in the supplied dataset for **January, February, and March 2023**, rather than a complete twelve-month financial year. This limitation is important when interpreting the revenue result because the available data does not support a full-year or year-over-year performance comparison.
-
-### Table Relationships
-
-The Sales table functions as the central transaction table in the Power BI data model.
-
-The relationships are:
+The three analytical tables are connected through their identifier fields:
 
 ```text
-Products[ProductID]  1 ───── *  Sales[ProductID]
+Products[ProductID]  1 ───────── *  Sales[ProductID]
 
-Customers[CustomerID]  1 ──── *  Sales[CustomerID]
+Customers[CustomerID]  1 ─────── *  Sales[CustomerID]
 ```
-
-The `ProductID` relationship allows sales transactions to be analysed using product attributes such as ProductName, Category, Brand, and Color.
-
-The `CustomerID` relationship allows sales transactions to be analysed using customer attributes such as Region, Age, Gender, and IncomeLevel.
-
-This structure separates transaction-level measures from descriptive product and customer attributes, allowing the dashboard to evaluate financial performance, product demand, brand profitability, customer activity, and customer-segment profitability within a structured Power BI data model.
 
 
 
 ## 3. Data Cleaning and Transformation
 
-The raw Excel workbook was reviewed in Power Query before analysis. The cleaning process focused on correcting inconsistent categorical values, standardizing date fields, confirming data types, and validating the key fields used to connect the tables.
+The raw workbook was reviewed table by table in Power Query before the analysis was performed. The cleaning process focused on data quality issues that could affect filtering, grouping, calculations, and relationships between the tables.
 
-### 3.1 Data Quality Review
+### Products Table
 
-The three analytical tables were checked for missing values and duplicate records.
+The Products table contained 250 records with no missing values or duplicate records.
 
-- **Products:** 250 records, with no blank values or duplicate rows.
-- **Customers:** 250 records, with no blank values or duplicate rows.
-- **Sales:** 5,200 records, with no blank values or duplicate rows.
+The following checks were performed:
 
-The primary identifier fields were also checked for uniqueness:
+- `ProductID` was checked for uniqueness and completeness.
+- `ProductName`, `Category`, `Brand`, and `Color` were reviewed for inconsistent text values.
+- `Weight` was checked to confirm that the numeric values were valid.
+- No missing values or duplicate records required removal from the Products table.
 
-- `Products[ProductID]` — 250 unique IDs.
-- `Customers[CustomerID]` — 250 unique IDs.
-- `Sales[SaleID]` — 5,200 unique transaction IDs.
+The Products table was therefore retained as the product dimension used to analyze sales by product, category, brand, and color.
 
-The ProductID and CustomerID values recorded in the Sales table matched the corresponding IDs in the Products and Customers tables, so no unmatched product or customer records were identified.
+### Customers Table
 
-### 3.2 Standardizing Customer Fields
+The Customers table contained 250 records with no missing values or duplicate records.
 
-The Customers table contained inconsistent text values that could create separate categories during analysis.
+Two text-standardization issues were identified:
 
-#### Region
+**1. Region**
 
-The `Region` column contained both:
+Some Region values contained leading and trailing spaces, creating a separate ` north ` value from `North`.
 
-- `North`
-- ` north `
+The Region column was cleaned by applying **Trim** in Power Query so that the values could be grouped correctly.
 
-The values were standardized by removing unnecessary spaces and correcting the capitalization so that both represented the same `North` category.
+**2. Gender**
 
-#### Gender
+The Gender column contained both `Female` and `female`, which represented the same category.
 
-The `Gender` column contained:
+The values were standardized to a consistent format so that female customers were treated as one category.
 
-- `Male`
-- `Female`
-- `female`
+After cleaning, Region contained four consistent values:
 
-The lowercase `female` value was standardized to `Female` so that the same gender was not treated as two separate categories.
+- North
+- East
+- South
+- West
 
-### 3.3 Standardizing Date Fields
+Gender contained two consistent values:
 
-The source data contained dates written in different formats.
+- Male
+- Female
 
-The `Sales[SaleDate]` column contained values such as:
+### Sales Table
+
+The Sales table contained 5,200 transaction records with no missing values or duplicate records.
+
+The following checks were performed:
+
+- `SaleID` was checked for uniqueness.
+- `ProductID` and `CustomerID` were checked against the Products and Customers tables.
+- `Quantity`, `SalesAmount`, and `Unit Cost` were checked as numeric fields.
+- Quantity values were positive.
+- SalesAmount and Unit Cost contained no missing or negative values.
+- `SaleDate` contained the same dates represented in two different text formats.
+
+The `SaleDate` column contained:
 
 - `2023-01-01`
 - `2023/02/15`
 - `2023-03-10`
 
-The `Customers[SignupDate]` column also contained mixed date formats, including:
+The date column was converted to a proper **Date** data type so that the transactions could be grouped correctly by month and year in Power BI.
 
-- `2020-05-01`
-- `2021/06/12`
-- `2022-07-15`
+### Transformation Summary
 
-The date columns were converted to the appropriate **Date** data type in Power Query so they could be used consistently for time-based analysis.
+The main Power Query transformations were:
 
-### 3.4 Data Type Validation
+| Table | Transformation | Reason |
+|---|---|---|
+| Products | Checked missing values and duplicates | Confirm product records were complete and unique. |
+| Customers | Trimmed Region values | Removed leading/trailing spaces that created inconsistent region categories. |
+| Customers | Standardized Gender values | Combined `Female` and `female` into one category. |
+| Sales | Converted SaleDate to Date | Enabled accurate month and year analysis. |
+| Sales | Checked numeric columns | Confirmed Quantity, SalesAmount, and Unit Cost were suitable for calculations. |
+| All analytical tables | Checked key fields | Ensured ProductID, CustomerID, and SaleID could support the data model. |
 
-The columns were reviewed and assigned data types according to their analytical purpose.
-
-- Identifier fields were treated as whole numbers.
-- Quantity and financial fields were treated as numerical values.
-- Age was treated as a whole number.
-- Weight was treated as a decimal number.
-- Product, customer, brand, category, color, region, gender, and income-level fields were treated as text.
-- SaleDate and SignupDate were converted to Date.
-
-### 3.5 Final Data Preparation
-
-After the cleaning and transformation steps, the prepared Products, Customers, and Sales tables were loaded into Power BI.
-
-The cleaned tables were then used to create relationships, DAX measures, analytical visuals, and the final interactive dashboard.
+No rows were removed from the three analytical tables because the identified issues could be corrected through transformation without discarding valid transaction, product, or customer records.
 
 
 
 ## 4. Analysis
 
-The analysis examined the dataset from five perspectives: overall business performance, brand profitability, product demand, revenue over time, and customer profitability.
+The analysis was performed in Power BI using the cleaned Products, Customers, and Sales tables. The analysis focused on the financial performance of the business, product performance, customer activity, and profitability across customer and product segments.
 
-### Overall Business Performance
+### 4.1 Financial Performance
 
-The overall performance analysis measured Total Revenue, Total Cost, Total Profit, Profit Margin, Total Customers, and Units Sold. These measures provide a baseline view of the business's financial performance, sales volume, and customer base.
+The core financial measures were calculated from the Sales table.
 
-### Profitability by Brand
+| KPI | Result |
+|---|---:|
+| Total Revenue | £3,106,350 |
+| Total Cost | £2,174,445 |
+| Total Profit | £931,905 |
+| Total Sales Transactions | 5,200 |
+| Total Customers | 250 |
+| Total Units Sold | 15,657 |
 
-Profit was compared across brands to determine which brands contributed the most to the business's overall profitability.
+Total profit was calculated as the difference between Total Revenue and Total Cost.
 
-### Product Demand by Color
+The resulting profit margin was approximately **30%**, indicating that approximately £0.30 of every £1 of recorded revenue remained as profit after the recorded product costs.
 
-Units Sold were compared across product colors to determine which color recorded the highest purchase volume.
+### 4.2 Profit by Brand
 
-### Revenue by Year
+Profit was grouped by Brand to identify which electronics brand contributed the most profit.
 
-Revenue was examined by year to establish the total revenue generated during the available sales period and determine whether the dataset supported a year-over-year comparison.
+| Brand | Profit |
+|---|---:|
+| Apple | £196,890 |
+| Lenovo | £160,140 |
+| Samsung | £159,510 |
+| HP | £147,990 |
+| Asus | £141,525 |
+| Dell | £125,850 |
 
-### Monthly Customer Reach
+Apple recorded the highest profit among the six brands, while Dell recorded the lowest.
 
-Unique customers were examined by month to compare customer activity across the available months.
+### 4.3 Purchase Volume by Color
 
-### Profit by Customer Income Level
+Quantity was grouped by Color to determine which product color recorded the highest purchase volume.
 
-Profit was compared across Low, Medium, and High income-level segments to determine which customer segment contributed the most to overall profitability.
+| Color | Units Sold |
+|---|---:|
+| White | 6,120 |
+| Gray | 5,230 |
+| Black | 4,307 |
 
-### Interactive Analysis
+White recorded the highest purchase volume with **6,120 units**, followed by Gray and Black.
 
-The dashboard includes **Brand** and **Product Name** slicers. These slicers allow users to filter the dashboard and examine how the selected brand or product affects the displayed revenue, cost, profit, customer, and sales-volume measures.
+### 4.4 Revenue by Year
 
+Revenue was grouped by year using the SaleDate field.
 
+The available Sales records contain **2023 transactions only**, producing total revenue of:
+
+**£3,106,350**
+
+Because only one year is represented in the dataset, the analysis does not support a year-over-year revenue comparison.
+
+### 4.5 Monthly Customer Activity
+
+Customer activity was analyzed by month using the unique CustomerID count.
+
+| Month | Unique Customers |
+|---|---:|
+| January | 250 |
+| February | 250 |
+| March | 250 |
+
+Each available month recorded **250 unique customers**.
+
+Therefore, there was no single lowest-performing month based on unique customer reach. January, February, and March were tied at 250 customers.
+
+### 4.6 Profit by Income Level
+
+Profit was grouped by customer IncomeLevel to determine which income segment contributed the most profit.
+
+| Income Level | Profit |
+|---|---:|
+| Medium | £346,920 |
+| High | £302,205 |
+| Low | £282,780 |
+
+The Medium income-level segment generated the highest profit at **£346,920**, followed by High and Low.
+
+### 4.7 Product Profitability
+
+Product-level profit was also examined to identify the products contributing the most profit.
+
+| Product | Profit |
+|---|---:|
+| Headphones | £167,565 |
+| Monitor | £166,365 |
+| Tablet | £154,605 |
+| Keyboard | £118,620 |
+| Mouse | £114,375 |
+| Laptop | £107,340 |
+| Phone | £103,035 |
+
+Headphones generated the highest product-level profit at **£167,565**, closely followed by Monitor at **£166,365**.
 
 ## 5. Key Findings
 
