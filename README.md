@@ -404,73 +404,69 @@ The dashboard therefore provides a useful monitoring structure for tracking the 
 
 ## 6. Analysis Questions and Insights
 
-The analysis was designed to answer five business questions using the cleaned sales, product, and customer data.
+The analysis was structured around five business questions defined at the beginning of the project. Each question was evaluated using the appropriate measure and dimension from the cleaned dataset.
 
-### 1. Which brand generated the highest profit?
+### Question 1: Which brand generated the highest profit?
 
-**Result:** Apple generated the highest profit at **£196,890**.
+**Finding:** Apple generated the highest brand-level profit at **£196,890**, followed by Lenovo at £160,140 and Samsung at £159,510. Dell recorded the lowest profit among the six brands at **£125,850**.
 
-**Insight:** Apple was the strongest profit-contributing brand among the six brands analyzed. Its profit was higher than Lenovo (£160,140), Samsung (£159,510), HP (£147,990), Asus (£141,525), and Dell (£125,850).
+**Insight:** Apple was the strongest brand contributor to total profit within the available sales records. The difference between the highest and lowest brand profit provides a useful basis for monitoring how profit contribution varies across brands.
 
-From a monitoring perspective, Apple should remain a key brand to track because changes in its sales volume, revenue, or cost could have a noticeable effect on overall profitability.
+The analysis identifies the difference in profit contribution but does not, by itself, establish whether the difference was caused by sales volume, selling price, product mix, or cost structure.
 
----
+### Question 2: Which product color recorded the highest purchase volume?
 
-### 2. Which product color recorded the highest purchase volume?
+**Finding:** White recorded the highest purchase volume with **6,120 units**, followed by Gray with 5,230 units and Black with 4,307 units.
 
-**Result:** White recorded the highest purchase volume at **6,120 units**.
+White represented approximately **39.1%** of the total 15,657 units recorded.
 
-White represented approximately **39.1%** of the total **15,657 units sold**, compared with 5,230 units for Gray and 4,307 units for Black.
+**Insight:** White products accounted for the largest share of recorded unit volume during the available sales period. However, higher purchase volume does not necessarily mean higher profitability because profitability depends on both revenue and associated costs.
 
-**Insight:** White products accounted for the largest share of recorded unit volume. This identifies White as the strongest color category by sales volume in the available data.
+### Question 3: What was the total revenue for the available sales year?
 
-However, high volume should not be interpreted as high profitability without examining the associated revenue and cost.
+**Finding:** The available Sales records generated **£3,106,350 in revenue during 2023**.
 
----
+The dataset contains sales records from **January through March 2023**, with the available Sales data ending on March 10, 2023.
 
-### 3. What was the total revenue for the available sales year?
+**Insight:** The £3,106,350 figure represents the revenue contained in the supplied dataset for the available 2023 sales period. It should not be interpreted as a full-year 2023 revenue figure because the dataset does not contain April through December records.
 
-**Result:** The Sales data generated **£3,106,350 in revenue during 2023**.
+The available data also does not support a year-over-year revenue comparison because only one sales year is represented.
 
-**Insight:** The dataset represents only part of 2023, with transaction dates available for January, February, and March. Therefore, £3,106,350 should be treated as the revenue recorded in the supplied dataset rather than a full-year 2023 revenue figure.
+### Question 4: Which month recorded the lowest customer reach?
 
-The available data also does not support a year-over-year revenue comparison because no second year is present.
-
----
-
-### 4. Which month recorded the lowest customer reach?
-
-**Result:** There was **no single lowest month**.
+**Finding:** There was **no single lowest month** based on unique customer reach.
 
 | Month | Unique Customers |
-|---|---:|
+| --- | ---: |
 | January | 250 |
 | February | 250 |
 | March | 250 |
 
-**Insight:** Customer reach was identical across the three available monthly periods. Each month recorded 250 unique customers, so the data does not identify a month with lower customer reach.
+**Insight:** Customer reach was identical across all three available months, with each month recording 250 unique customers.
 
-This should be reported as a three-way tie rather than selecting one month as the lowest-performing month.
+Therefore, selecting January, February, or March as the lowest month would be misleading. The correct analytical conclusion is that the three months were tied based on the unique-customer measure used.
 
----
+### Question 5: Which customer income level generated the highest profit?
 
-### 5. Which customer income level generated the highest profit?
-
-**Result:** The **Medium income-level segment generated the highest profit at £346,920**.
-
-| Income Level | Profit |
-|---|---:|
-| Medium | £346,920 |
-| High | £302,205 |
-| Low | £282,780 |
+**Finding:** The **Medium income-level segment generated the highest profit at £346,920**, followed by High at £302,205 and Low at £282,780.
 
 Medium-income customers contributed approximately **37.2% of the total £931,905 profit**.
 
-**Insight:** The Medium income-level segment was the largest contributor to profit among the three income groups. This makes the segment important for continued performance monitoring.
+**Insight:** The Medium income-level segment was the largest contributor to recorded profit among the three income groups.
 
-The analysis identifies the difference in profit contribution but does not establish the underlying cause, such as differences in purchasing frequency, product selection, quantity purchased, or transaction value.
+The result identifies the segment with the highest profit contribution, but the available analysis does not establish whether this was driven by the number of customers, transaction frequency, purchase quantity, revenue per customer, or product mix.
 
+### Overall Analytical Interpretation
 
+The five business questions reveal that performance was not evenly distributed across the dimensions examined.
+
+- **Apple** was the highest-profit brand.
+- **White** had the highest recorded purchase volume.
+- **£3,106,350** was the revenue recorded for the available 2023 sales period.
+- **January, February, and March** had equal unique-customer reach.
+- **Medium-income customers** generated the highest profit among the income-level groups.
+
+These results provide specific areas for continued monitoring through the Power BI dashboard. The dashboard allows the user to move from the overall business position to selected products, categories, or brands using the available slicers, while the supporting visuals provide the corresponding product, brand, customer, and profitability comparisons.
 
 
 
