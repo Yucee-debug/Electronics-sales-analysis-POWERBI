@@ -475,17 +475,63 @@ The analysis identifies the difference in profit contribution but does not estab
 
 
 
+
+
 ## 7. Dashboard Preview
 
-The Power BI dashboard provides an interactive overview of electronics sales performance, profitability, customer activity, and product performance.
+The Power BI report was structured into two dashboard pages to separate **performance monitoring** from **performance analysis**. The first page establishes the overall financial position of the electronics business, while the second page investigates the product, brand, color, customer, and income-level patterns behind that performance.
 
-### Electronics Overview
+### Business Overview
 
-![Electronics Overview Dashboard](ELECTRONICS%20OVERVIEW.png)
+![Business Overview Dashboard](business%20overview.png)
 
-### Electronics Sales Analysis Dashboard
+The **Business Overview** page was designed as the primary monitoring page for the electronics business.
 
-![Electronics Sales Analysis Dashboard](ELECTRONICS%20SALES%20ANALYSIS%20DASHBOARD.png)
+The five KPI cards provide an immediate measurement of the overall position of the business:
+
+- **Total Revenue — £3.11M**
+- **Total Profit — £931.91K**
+- **Total Cost — £2.17M**
+- **Total Sales — 5,200**
+- **Total Customers — 250**
+
+These measures establish the financial and transaction baseline before moving into the underlying performance breakdowns.
+
+The **Revenue, Cost and Profit by Region and Month** visual allows financial performance to be compared across the available monthly periods and four regions. This makes it possible to identify differences in regional contribution while also observing how revenue, cost, and profit changed across the available periods.
+
+The **Profit by Product** visual ranks the seven products according to their contribution to profit. This supports product-level performance monitoring and makes it easier to identify the products contributing most and least to the overall profit result.
+
+The page also includes **Product Name, Category, and Brand** slicers. These controls allow the user to move from the overall business position to a more focused view of selected products, categories, or brands.
+
+### Business Analysis
+
+![Business Analysis Dashboard](business%20analysis.png)
+
+The **Business Analysis** page was designed to investigate the composition of the business results rather than only report the overall totals.
+
+The **Purchase Volume by Color** visual compares the number of units sold across the three product colors, providing a view of product demand by color.
+
+The **Customer Activity by Month** visual compares the number of unique customers recorded across the available monthly periods. This was used to determine whether any month recorded lower customer reach.
+
+The **Revenue by Year** visual establishes the revenue recorded for the available sales year. Since the Sales data contains 2023 records only, the visual provides a revenue baseline rather than a year-over-year growth comparison.
+
+The **Profit by Brand** visual compares the profit contribution of the six brands in the dataset, allowing the strongest and weakest brand-level contributors to be identified.
+
+The **Profit by Income Level** visual examines how profit is distributed across the Low, Medium, and High customer income-level groups. This provides a customer-segment view of profitability rather than assuming that total customer count alone represents business value.
+
+The **Product Name, Category, and Brand** slicers are available on this page as well, allowing the user to narrow the analysis and examine how the selected product, category, or brand affects the displayed results.
+
+### Dashboard Design Approach
+
+The two-page structure was intentionally used to support a monitoring-to-analysis workflow:
+
+**Business Overview → establish the overall performance position**
+
+**Business Analysis → investigate the factors contributing to that position**
+
+This structure allows a user to begin with the headline KPIs and then use the supporting visuals and slicers to investigate product, regional, brand, customer, and profitability patterns within the available data.
+
+
 
 
 
